@@ -49,26 +49,35 @@
 		});
 		
 		//Full example of format  here --> you can see that we need a start time and and end time in this specific format. Declan you need to tack on the datetimes to the end of the url http://digitalinc.ie/ScreenSpace/get-tv-shows.php?tv_start_time=27-10-2013%2021:20:00&tv_end_time=27-10-2013%2023:40:00
+		
+		//Beginning of the refresh funtion: This calculates the times, creates a new URL and gets the TV show data. 
 		function refresh(){
 		
-		// get the current time
+		
+			//This is Declan's code for calculating the current time
+			// get the current time
 			var now = new Date();
 			// add an hour, for 30 min block use ( then.getMinutes() + 30 );  the amount of time makes a big deifference to what you get back and might need to change based on time of day, shorter in the morning?
 			var then = new Date(now);
 			then.setHours(then.getHours()+1);
 			var url = 'http://digitalinc.ie/ScreenSpace/get-tv-shows.php?tv_start_time=' + now.format("dd-mm-yyyy%20HH:00:00") + '&tv_end_time=' + then.format("dd-mm-yyyy%20HH:00:00");
+			//End of Declan's code for calculating the time
+			
+			//get the TV shows based on the URL
 			$.get(url, function(data){
 				
-			//This is an example of what we're going to output --> <li class="tv-show" data-id="1" data-name="Love/Hate" data-hashtag="#lovehate" data-channel="RTE1" data-start-time="27/10/2013 21:30:00" data-end-time="27/10/2013 22:30:00">Love/Hate</li>
-						
+				//This is an example of what we're going to output --> <li class="tv-show" data-id="1" data-name="Love/Hate" data-hashtag="#lovehate" data-channel="RTE1" data-start-time="27/10/2013 21:30:00" data-end-time="27/10/2013 22:30:00">Love/Hate</li>
+				
+				//clear the container and then append the TV shows to it. 		
 				$('ul.tv-shows-container').html('');
 				$(data.tv_shows).each(function(show){
 					$('ul.tv-shows-container').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '">' + this.name + '</li>');
 				});
 			});
 		}
+		//get the data
 		refresh();
-		//every minute go back and get the information about the TV shows frm the database...
+		//every minute go back and get the data about the TV shows from the database...
 		setInterval(refresh, 60000); //here's where I'm setting the interval in miliseconds. 
 	});
 		
