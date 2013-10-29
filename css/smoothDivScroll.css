@@ -1,4 +1,4 @@
-﻿/* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
+/* You can alter this CSS in order to give Smooth Div Scroll your own look'n'feel */
 
 /* Invisible left hotspot */
 div.scrollingHotSpotLeft
@@ -17,13 +17,13 @@ div.scrollingHotSpotLeft
 	z-index: 200;
 	left: 0;
 	/*  The first url is for Firefox and other browsers, the second is for Internet Explorer */
-	cursor: url(../images/cursors/cursor_arrow_left.png), url(../images/cursors/cursor_arrow_left.cur),w-resize;
+	cursor: url(../images/cursors/cursor_arrow_left.png) , url(../images/cursors/cursor_arrow_left.cur) ,w-resize;
 }
 
 /* Visible left hotspot */
 div.scrollingHotSpotLeftVisible
 {
-	background-image: url(../images/arrow_left.gif);				
+	background-image: url(../../Screen_Space%20UI/images/arrow_left.gif);				
 	background-color: #fff;
 	background-repeat: no-repeat;
 	opacity: 0.35; /* Standard CSS3 opacity setting */
@@ -44,13 +44,13 @@ div.scrollingHotSpotRight
 	position: absolute;
 	z-index: 200;
 	right: 0;
-	cursor: url(../images/cursors/cursor_arrow_right.png), url(../images/cursors/cursor_arrow_right.cur),e-resize;
+	cursor: url(../images/cursors/cursor_arrow_right.png) , url(../images/cursors/cursor_arrow_right.cur) ,e-resize;
 }
 
 /* Visible right hotspot */
 div.scrollingHotSpotRightVisible
 {
-	background-image: url(../images/arrow_right.gif);
+	background-image: url(../../Screen_Space%20UI/images/arrow_right.gif);
 	background-color: #fff;
 	background-repeat: no-repeat;
 	opacity: 0.35;

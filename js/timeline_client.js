@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	$('#search_button4').click(function(){
 		
 		// Display a progress indicator
-		$('#search_results4').html('<img src="ajax_loader.gif"> Searching Twitter...');
+		$('#search_results4').html('<img src="../../Screen_Space UI/js/ajax_loader.gif"> Searching Twitter...');
 		
 		// Get the value of the input field
 		// Encode it for use in a URL

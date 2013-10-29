@@ -1,47 +1,36 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
 
-	body {
-		  
+body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	background-image:url('../images/BACKGROUND.png');
 	background-repeat:no-repeat;
 	background-attachment:fixed;
 	background-position:center;  
-
-		 
-		  
-	  }
+}
 	  
-.current_user
-
-{
-	 	  float:left;
-		  font-family: 'Lato', Calibri, Arial, sans-serif;
-		  font-size:24px;
-		  color: #00dcf0;
-		 font-weight:300;
+.current_user {
+	float:left;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	font-size:24px;
+	color: #00dcf0;
+	font-weight:300;
 }
 
 	  
-	  .Title
-	  {
-		  font-family: 'Lato', Calibri, Arial, sans-serif;
-		  font-size: 36px;
-		 		  text-align: center;
-		  color: #fff;
-		  margin-top: 35px;
-		  font-weight:300
-		  
-	  }
+.Title {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	font-size: 36px;
+	text-align: center;
+	color: #fff;
+	margin-top: 35px;
+	font-weight:300
+}
 	  
 	  
 	 
-  .diveder
-  {
+.diveder{
 	background-image:url('../images/divide.jpg');
-	  height:3px;
-  	  
-  
-  }
+	height:3px;
+}
   
