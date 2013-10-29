@@ -33,4 +33,9 @@ body {
 	background-image:url('../images/divide.jpg');
 	height:3px;
 }
-  
+
+
+.tv-shows-container li{
+	list-style: none;
+	color: #fff;
+}
