@@ -71,7 +71,7 @@
 				//clear the container and then append the TV shows to it. 		
 				$('ul.tv-shows-container').html('');
 				$(data.tv_shows).each(function(show){
-					$('ul.tv-shows-container').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '">' + this.name + '</li>');
+					$('ul.tv-shows-container').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '">' + this.name + ' ' + this.hashtag + '</li>');
 				});
 			});
 		}
