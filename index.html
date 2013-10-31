@@ -3,14 +3,10 @@
 <head>
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/pace.js"></script>
-<script src="./js/search_client.js"></script>
+<script src="./js/scripts.js"></script>
 <script src="./js/timeline_client.js"></script>
 <script src="./js/time_format.js"></script>
-
-<link rel="Stylesheet" type="text/css" href="./css/loader.css" />
-<link rel="Stylesheet" type="text/css" href="./css/tweet.css" />
 <link rel="Stylesheet" type="text/css" href="./css/style.css" />
-<link rel="stylesheet" href="./css/reveal.css">
 <!-- the CSS for Smooth Div Scroll -->
 <link rel="Stylesheet" type="text/css" href="./css/smoothDivScroll.css" />
 
@@ -20,15 +16,10 @@
 	  var polyfilter_scriptpath = './js/';
 </script>
 
-<script>
-	  // this is important for IEs
-	  var polyfilter_scriptpath = './js/';
-</script>
-
 <script src="./js/cssParser.js"></script>
 <script src="./js/css-filters-polyfill.js"></script>
 
-      <!-- MODAL CONTENT -->
+<!-- MODAL CONTENT -->
 
 <script type="text/javascript" src="./js/jquery.reveal.js"></script>
           
@@ -40,16 +31,20 @@
 
 <!-- Safe to remove this -->
 <script type="text/javascript">
-
+	
+	
 	// Initialize the plugin with no custom options
 	$(document).ready(function () {
-		$("div#makeMeScrollable").smoothDivScroll({
+		// BEGIN SCROLLABLE FUNCTIONS
+		$("div#make_me_scrollable").smoothDivScroll({
 			touchScrolling: true,
 			hotSpotScrolling: false
 		});
+		// END SCROLLABLE FUNCTIONS
 		
 		//Full example of format  here --> you can see that we need a start time and and end time in this specific format. Declan you need to tack on the datetimes to the end of the url http://digitalinc.ie/ScreenSpace/get-tv-shows.php?tv_start_time=27-10-2013%2021:20:00&tv_end_time=27-10-2013%2023:40:00
 		
+		// BEGIN REFRESH FUNCTIONS
 		//Beginning of the refresh funtion: This calculates the times, creates a new URL and gets the TV show data. 
 		function refresh(){
 		
@@ -79,6 +74,43 @@
 		refresh();
 		//every minute go back and get the data about the TV shows from the database...
 		setInterval(refresh, 60000); //here's where I'm setting the interval in miliseconds. 
+		// END REFRESH FUNCTIONS
+		
+		//BEGIN TWITTER CLIENT FUNCTIONS
+		// Run when Search button is clicked
+		$('#search_button').click(function(){
+			
+			// Display a progress indicator
+			$('#search_results').html('<img src="./images/loading4.gif"> Searching Twitter...');
+			
+			// Get the value of the input field
+			// Encode it for use in a URL
+			var search_value = encodeURIComponent($('input[name=search_terms]').val());
+			
+			// Send the search terms to the server in an Ajax request
+			// This URL is for illustration only
+			// You MUST change it to your server
+			
+			var date = new Date();
+			var hours = date.getHours();
+			var day = date.getDate();
+			var month = date.getMonth() + 1; //Months are zero based
+			var year = date.getFullYear();
+			
+			date = year + "-" + month + "-" + day;// + " " + hours + ":00:00";
+			
+			
+			$.ajax({
+				url: 'http://digitalinc.ie/ScreenSpace/search.php?q=' + search_value + '&count=10&until=' + date,
+				success: function(data){
+										
+					// Display the results
+					$('#search_results').html(data);
+				}
+			})
+		})
+		//END TWITTER CLIENT FUNCTIONS
+	
 	});
 		
 		  
@@ -88,13 +120,20 @@
 
 <body>
     <div class="current_user"> @Current user</div><!-- END current_user -->
-    <div class="Title">WHATS ON NOW</div><!-- END Title -->
+    <div class="title">WHATS ON NOW</div><!-- END Title -->
     <div class="diveder"></div><!-- END diveder -->
-    <a href="#" data-reveal-id="myModal" data-animation="fade"> Test the modal </a>
-    <div id="myModal" class="reveal-modal">
-        <div id="makeMeScrollable"> 
-            <img src="images/longimage.jpg" width="4000" height="400"  alt=""/> 
-        </div><!-- END makeMeScrollable -->
+    <div id="search_box">
+        <input name="search_terms" autofocus/>
+        <button id="search_button"  a href="#" data-reveal-id="my_modal" data-animation="fade">Search</button><!-- END search_button -->
+	</div>
+    <!-- END search_box -->
+  	<a href="#" data-reveal-id="my_modal" data-animation="fade">Show the Twitter Feed </a>
+    
+    
+    <div id="my_modal" class="reveal-modal">
+        <div id="make_me_scrollable"> 
+            <div id="search_results"></div><!-- END search_results -->
+        </div><!-- END make_me_scrollable -->
             <a class="close-reveal-modal">&#215;</a> 
     </div><!-- END reveal-modal -->
                 

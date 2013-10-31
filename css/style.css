@@ -1,41 +1,299 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-
-
 body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
-	background-image:url('../images/BACKGROUND.png');
-	background-repeat:no-repeat;
-	background-attachment:fixed;
-	background-position:center;  
+	background-image: url('../images/BACKGROUND.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;  
 }
 	  
 .current_user {
-	float:left;
+	float: left;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
-	font-size:24px;
+	font-size: 24px;
 	color: #00dcf0;
-	font-weight:300;
+	font-weight: 300;
 }
 
 	  
-.Title {
+.title {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	font-size: 36px;
 	text-align: center;
 	color: #fff;
 	margin-top: 35px;
-	font-weight:300
+	font-weight: 300;
 }
-	  
-	  
+	  	  
 	 
-.diveder{
-	background-image:url('../images/divide.jpg');
-	height:3px;
+.diveder {
+	background-image: url('../images/divide.jpg');
+	height: 3px;
 }
 
 
-.tv-shows-container li{
+.tv-shows-container li {
 	list-style: none;
 	color: #fff;
 }
+
+/* //// BEGIN TWEET STYLES //// */
+
+#make_me_scrollable {
+	width: 100%;
+	position: relative;
+	background: none;		 
+}
+		  
+#search_results {
+	width: 9000px;
+	position: relative; 
+	display: inline;
+	float: left;
+}
+
+.tweet {
+	float: left;
+	width: 400px;
+	height: 300px;
+	
+	padding-bottom: 10px;
+	display: inline;
+	border-radius: 2px;
+	border-style: solid;
+	border-color: #820174;
+	
+	margin-left: 10px;
+	margin-right: 40px;
+	margin-top: 80px;
+	padding-bottom: 10px;
+}
+
+.tweet_left {
+	float: left;
+	width: 28px;
+	margin: 2px 4px 4px 2px;
+}
+
+.tweet_left img {
+	border: 2px solid #fff;
+	margin-top: 1px;
+}
+
+.tweet_left img:hover {
+	border: 2px solid #C40001;
+}
+
+.tweet_right {
+	float: right;
+	position: relative;
+	width: 400px;
+	padding: 2px 5px 4px;
+}
+
+.tweet_triangle {
+	background: url(../images/twitter_triangle.gif) no-repeat scroll 100% 0 transparent;
+	height: 13px;
+	left: -7px;
+	position: absolute;
+	top: 10px;
+	width: 7px;
+}
+
+.tweet_row {
+	float: left;
+	line-height: 15px;
+	position: relative;
+}
+
+.tweet_name {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	color: #fff;
+	font-size: 35px;
+	font-weight: 200;
+	margin-top: 4px;
+}
+
+.tweet_username {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	color: #820174;
+	font-size: 30px;
+	margin-top: 4px;
+}
+
+.tweet_username a {
+	color: #690156;
+	font-size: 20px;
+	margin-right: 4px;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+.tweet_text {
+	font-size: 22px;
+	font-weight: 300;
+	color: #fff;
+	line-height: 26px;
+	word-wrap: break-word;
+	width: 100%;
+	margin: 0 0 3px;
+	padding: 0;
+}
+
+.tweet_text a {
+	color: #5799DB;
+	text-decoration: none;
+}
+
+.tweet_timestamp,.tweet_timestamp a {
+	color: #999;
+	font-size: 12px;
+	text-decoration: none;
+	float: left;
+	display: inline;
+}
+
+.tweet_timestamp {
+	margin-right: 4px;
+}
+
+.tweet_timestamp .retweets {
+	float: left;
+	margin-right: 6px;
+}
+
+.tweet_timestamp img {
+	float: left;
+	margin-left: 4px;
+	margin-right: 3px;
+	margin-top: -2px;
+}
+
+.tweet_timestamp .stream_bluebird {
+	margin-left: 0;
+	margin-right: 4px;
+}
+
+.tweet_timestamp .imageof_reply {
+	margin-right: 2px;
+}
+
+.tweet_timestamp .imageof_retweet {
+	margin-top: -1px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* //// END TWEET STYLES //// */
+
+
+/* //// BEGIN REVEAL MODALS STYLES //// */
+		
+.reveal-modal-bg { 
+	position: fixed; 
+	height: 100%;
+	width: 100%;
+	background: #000;
+	background: rgba(0,0,0,.8);
+	z-index: 100;
+	display: none;
+	top: 0;
+	left: 0; 
+}
+	
+.reveal-modal {
+	visibility: hidden;
+	top: 100px; 
+	width: 80%;
+	background: url(../images/modal-gloss.png) no-repeat -200px -80px;
+	position: absolute;
+	z-index: 101;
+	padding: 30px 40px 34px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	-box-shadow: 0 0 10px rgba(0,0,0,.4);
+}
+		
+.reveal-modal.small { 
+	width: 200px; 
+	margin-left: -140px;
+}
+
+.reveal-modal.medium { 
+	width: 400px; 
+	margin-left: -240px;
+}
+
+.reveal-modal.large { 
+	width: 600px; 
+	margin-left: -340px;
+}
+
+.reveal-modal.xlarge { 
+	width: 800px; 
+	margin-left: -440px;
+}
+
+.reveal-modal .close-reveal-modal {
+	font-size: 22px;
+	line-height: .5;
+	position: absolute;
+	top: 8px;
+	right: 11px;
+	color: #aaa;
+	text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+	font-weight: bold;
+	cursor: pointer;
+} 
+
+/* //// END REVEAL MODALS STYLES //// */
+
+/* /// NOTES: /// */
+
+/* Close button entity is &#215;
+
+	Example markup
+	
+	<div id="my_modal" class="reveal-modal">
+		<h2>Awesome. I have it.</h2>
+		<p class="lead">Your couch.  I it's mine.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices aliquet placerat. Duis pulvinar orci et nisi euismod vitae tempus lorem consectetur. Duis at magna quis turpis mattis venenatis eget id diam. </p>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+
+*/
+
+
+/* //// BEGIN LOADER STYLES //// */
+
+.pace .pace-progress {
+  display: block;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 12px;
+  background: #ff00c6;
+
+  -webkit-transition: -webkit-transform .3s, width 1s;
+  -moz-transition: width 1s;
+  -o-transform: width 1s;
+  transition: transform .3s, width 1s;
+
+  -webkit-transform: translateY(-50px);
+  transform: translateY(-50px);
+
+  pointer-events: none;
+}
+
+.pace.pace-active .pace-progress {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* //// END LOADER STYLES //// */
