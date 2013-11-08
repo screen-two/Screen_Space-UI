@@ -399,3 +399,7 @@ ul {
 	border-width: 2px;
 	border-color: white;
 }	  
+
+clear {
+	clear: both;
+}

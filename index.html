@@ -154,12 +154,12 @@
 				//Assigning of the 4 Channels its own LI
 				$('ul.tv-shows-container').html('');
 				$(data.tv_shows[0]).each(function(show){
-					$('ul.tv-shows-container').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</li>'); 
+					$('ul.tv-shows-container').append('<li class="tv-show clear" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</li>'); 
 				});
 				
 				$('ul.tv-shows-container1').html('');
 				$(data.tv_shows[1]).each(function(show){
-					$('ul.tv-shows-container1').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station +' ' + this.hashtag + ': ' + this.count + '</li>'); 
+					$('ul.tv-shows-container1').append('<li class="tv-show clear" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station +' ' + this.hashtag + ': ' + this.count + '</li>'); 
 				});		
 				
 				/*$('ul.tv-shows-container2').html('');
@@ -235,6 +235,7 @@
   <div class="birdicon"><img src="./images/spacer.png" width="80" height="92"  alt=""/></div>
   <div class="title"> CUSTOMISE </div>
   <div class="infoicon"> <img src="./images/info-icon.png" width="190" height=88  alt=""/> </div>
+  <div class="clear"></div>
 </div>
 
 <!-- <div id="search_box">
