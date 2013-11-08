@@ -347,6 +347,11 @@ ul {
 
 }
 
+.birdicon img {
+	width: 90%;
+
+}
+
 .infoicon{
 	float:left;
     width: 200px;
