@@ -29,12 +29,11 @@
 <script src="./js/jquery.kinetic.js" type="text/javascript"></script>
 <script src="./js/jquery.smoothdivscroll-1.3-min.js" type="text/javascript"></script>
 
-<script language="javascript" type="text/javascript" src="./js/jquery.jsmovie.1.4.1.min.js" ></script>
-<script language="javascript" type="text/javascript" src="./js/visuals.js"></script><script type="text/javascript">
+<!-- Safe to remove this -->
+<script type="text/javascript">
 	
 	
 	// Initialize the plugin with no custom options
-	//BEGIN DOCUMENT READY FUNCTION
 	$(document).ready(function () {
 		// BEGIN SCROLLABLE FUNCTIONS
 		$("div#make_me_scrollable").smoothDivScroll({
@@ -48,30 +47,105 @@
 		// BEGIN REFRESH FUNCTIONS
 		//Beginning of the refresh funtion: This calculates the times, creates a new URL and gets the TV show data. 
 		function refresh(){
-		
+
 		
 			//This is Declan's code for calculating the current time
 			// get the current time
 			var now = new Date();
-			// add an hour, for 10 min block use ( then.getMinutes() + 10 );  the amount of time makes a big deifference to what you get back and might need to change based on time of day, shorter in the morning?
+			// add an hour, for 30 min block use ( then.getMinutes() + 30 );  the amount of time makes a big deifference to what you get back and might need to change based on time of day, shorter in the morning?
 			var then = new Date(now);
-			then.setMinutes(then.getMinutes()+10);
-			var url = 'http://digitalinc.ie/ScreenSpace/get-tv-shows.php?tv_start_time=' + now.format("dd-mm-yyyy%20HH:MM:00") + '&tv_end_time=' + then.format("dd-mm-yyyy%20HH:MM:00");
+			then.setHours(then.getHours()+1);
+			var url = 'http://digitalinc.ie/ScreenSpace/get-tv-shows.php?tv_start_time=' + now.format("dd-mm-yyyy%20HH:00:00") + '&tv_end_time=' + then.format("dd-mm-yyyy%20HH:00:00");
 			//End of Declan's code for calculating the time
 			
-			//get the TV shows based on the URL
+		//get the TV shows based on the URL
 			$.get(url, function(data){
 				
 				//This is an example of what we're going to output --> <li class="tv-show" data-id="1" data-name="Love/Hate" data-hashtag="#lovehate" data-channel="RTE1" data-start-time="27/10/2013 21:30:00" data-end-time="27/10/2013 22:30:00">Love/Hate</li>
 				
 				//clear the container and then append the TV shows to it. 		
-				$('ul.tv-shows-container').html('');
-				$(data.tv_shows).each(function(show){
-					$('ul.tv-shows-container').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">' + this.name + ' ' + this.hashtag + ' Number of tweets since last API call: ' + this.count + '</li>');
+				
+				//Assigning of the 4 Channels its own Div
+				$('div.tv-shows-container').html('');
+				$(data.tv_shows[0]).each(function(show){
+					$('ul.tv-shows-container').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</li>'); 
 				});
+				
+		$('ul.tv-shows-container1').html('');
+				$(data.tv_shows[1]).each(function(show){
+					$('ul.tv-shows-container1').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station +' ' + this.hashtag + ': ' + this.count + '</li>'); 
+				});		
+				
+		$('ul.tv-shows-container2').html('');
+				$(data.tv_shows[2]).each(function(show){
+					$('ul.tv-shows-container2').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">' + this.station + ' ' + this.hashtag + ': ' + this.count  + '</li>'); 
+				});				
+				
+	
+	
+			$('ul.tv-shows-container3').html('');
+				$(data.tv_shows[3]).each(function(show){
+					$('ul.tv-shows-container3').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ' : ' + this.count +'</li>'); 
+
+				});			
+				
 			});
-		};
+			
+			
+<!-- /////////////////////////////////////////// /////////////////////////////////////////////////////// -->  
+function animateImage(Index) {
+	$("img.animated:eq(" + Index + ")").each(function (Index) {
+		if (!$(this).is(":visible")) {
+			var intervalID = parseInt($(this).attr("intervalid"));
+			clearInterval(intervalID);
+		} else {
+			var max = parseInt($(this).attr("max"));
+			var pattern = $(this).attr("pattern");
+			var index = parseInt($(this).attr("index"));
+			index++;
+			if (index > max) {
+				index =1;
+			}
+			var src = pattern.replace("#", index);
+			$(this).attr("index", index);
+			$(this).attr("src", src);
+		}
+	});
+}
+function initialiseAnimatedImages() {
+	$("img.animated").each(function (Index) {
+		var interval = $(this).attr("interval");
+		$(this).attr("index", "0");
+		var intervalID = setInterval(function () { animateImage(Index); }, interval);
+		$(this).attr("intervalid", intervalID);
+	});
+}
+function stopAnimatedImages(Parent) {
+    $("img", Parent).each(function () {
+        var intervalID = $(this).attr("intervalid");
+        if (intervalID) {
+            clearInterval(parseInt(intervalID));
+        }
+    });
+}
+
+$(document).ready(function () {
+	initialiseAnimatedImages();
+	$("#spinnerColour").keypress(function(e) {
+		if (e.keyCode == 13) {
+			var colour = $("#spinnerColour").attr("value");
+			$(".loading-background").css("background-color", colour);
+		}
+	});
+});
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->					
+			
+		}
+		
+		
 		//get the data
+
 		refresh();
 		//every minute go back and get the data about the TV shows from the database...
 		setInterval(refresh, 60000); //here's where I'm setting the interval in miliseconds. 
@@ -79,10 +153,10 @@
 		
 		//BEGIN TWITTER CLIENT FUNCTIONS
 		// Run when Search button is clicked
-		/*$('#search_button').click(function(){
+		$('#search_button').click(function(){
 			
 			// Display a progress indicator
-			$('#search_results').html('<img src="./images/loading4.gif"> Searching Twitter...');
+			$('#search_results').html(' Searching Twitter...');
 			
 			// Get the value of the input field
 			// Encode it for use in a URL
@@ -108,13 +182,11 @@
 					// Display the results
 					$('#search_results').html(data);
 				}
-			});
-		});*/
+			})
+		})
 		//END TWITTER CLIENT FUNCTIONS
 	
 	});
-	//END DOCUMENT READY FUNCTION
-	
 		
 		  
 </script>
@@ -122,33 +194,57 @@
 </head>
 
 <body>
-    <div class="current_user"> @Current user</div><!-- END current_user -->
-    <div class="title">WHATS ON NOW</div><!-- END Title -->
-    <div class="diveder"></div><!-- END diveder -->
-    <!--<div id="search_box">
+<div class="navbar">
+  <div class="birdicon">
+  <img src="images/left Icon.png" width="200" height="98"  alt=""/>
+  </div>
+  <div class="title">WHATS ON NOW</div>
+		<div class="birdicon><img src="images/spacer.png" width="80" height="92"  alt=""/>
+        </div>
+		<div class="customise">CUSTOMISE</div>
+  			<div class="infoicon"> <img src="images/info-icon.png" width="200" height="98"  alt=""/>						</div>
+</div>
+
+<!--
+    <div id="search_box">
         <input name="search_terms" autofocus/>
         <button id="search_button"  a href="#" data-reveal-id="my_modal" data-animation="fade">Search</button><!-- END search_button -->
-	<!--</div>
+	</div>
     <!-- END search_box -->
-  	<!--<a href="#" data-reveal-id="my_modal" data-animation="fade">Show the Twitter Feed </a>-->
+  <!--	<a href="#" data-reveal-id="my_modal" data-animation="fade">Show the Twitter Feed </a>
+    -->
     
-    
-    <!--<div id="my_modal" class="reveal-modal">
+    <div id="my_modal" class="reveal-modal">
         <div id="make_me_scrollable"> 
-            <div id="search_results"></div>--><!-- END search_results -->
-        <!--</div><!-- END make_me_scrollable -->
-            <!--<a class="close-reveal-modal">&#215;</a> 
+            <div id="search_results"></div><!-- END search_results -->
+        </div><!-- END make_me_scrollable -->
+            <a class="close-reveal-modal">&#215;</a> 
     </div><!-- END reveal-modal -->
-                
-    <div></div>
+ 		
+             
+  <!-- RTE -->  
+    <ul class="tv-shows-container"></ul><br>
+
+
+     <!-- NET2 -->   
+
+     <ul class="tv-shows-container1"></ul><br>
+
     
-    <ul class="tv-shows-container">            
-    </ul><!-- END tv-shows-container -->
-    <!-- THESE IS THE DIVS THAT WILL BE CONVERTED INTO THE VIS -->
-    <div id="rte1"></div>
-    <div id="rte2"></div>
-    <div id="tv3"></div>
-    <div id="tg4"></div>
+ 
+     </div>
+
+
+  <!-- TV3-- -->   
+</p>
+
+  <ul class="tv-shows-container2"></ul><br>
+
+
+<!-- TG4 -->    
+<ul class="tv-shows-container3"></ul>
+
+  
     
 </body>
 </html>
