@@ -16,6 +16,7 @@
 	  var polyfilter_scriptpath = './js/';
 </script>
 <script src="./js/cssParser.js"></script>
+<script src="transit.min.js"></script>
 <script src="./js/css-filters-polyfill.js"></script>
 
 <!-- MODAL CONTENT -->
@@ -131,7 +132,31 @@
 			})
 		})*/
 		//END TWITTER CLIENT FUNCTIONS
-	
+		
+		//BEGIN CSS ANIMATION FUNCTIONS
+		
+		var count;
+		var scale;
+		
+		if (this.count<15)
+		  {
+		  scale="2";
+		  
+		  }
+		else if (this.count<21)
+		  {
+		  scale="4";
+		  
+		  }
+		  else if (this.count>21)
+		  {
+		  scale="8";
+		  
+		}
+		
+		$('#rte').ready(function() {
+		$('#rte').css({ scale: scale });  
+		});
 	});
 	//END DOCUMENT READY FUNCTION
 		  
