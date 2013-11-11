@@ -1,8 +1,50 @@
+
+/* //// BEGIN GENERAL STYLES //// */
+
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	background: url("../images/BACKGROUND.jpg") fixed no-repeat center;
+	color: #fff;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+}
+
+h1 {
+	font-size: 1.1em;
+	font-weight: 300;	
+}
+
+p {
+	font-size: 1em;
+	
+}
+
+blockquote {
+	
+}
+
+ul, ol {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol li {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+header {
+	margin: 35px 0 0 0;
+}
+	 
 	  
 .current_user {
 	float: left;
@@ -12,27 +54,6 @@ body {
 	font-weight: 300;
 }
 
-	  
-.title {
-	font-family: 'Lato', Calibri, Arial, sans-serif;
-	font-size: 36px;
-	text-align: center;
-	color: #fff;
-	margin-top: 35px;
-	font-weight: 300;
-}
-	  	  
-	 
-.diveder {
-	background-image: url('../images/divide.jpg');
-	height: 3px;
-}
-
-
-.tv-shows-container li {
-	list-style: none;
-	color: #fff;
-}
 
 /* //// BEGIN TWEET STYLES //// */
 
@@ -297,11 +318,33 @@ a:hover {
 
 
 /* //// BEGIN VISUALS STYLES //// */
-#rte {
+
+.col-1 {
 	float:left;
+	width: 31%;
+	background: #FF0;
 }
-#Net2 {
+
+#rte {
+	background: #F03;
+}
+
+#rte2 {
+	background: #0C0;
+}
+
+.col-2 {
 	float:left;
+	width: 30%;
+	
+}
+
+#tv3 {
+	background: #36F;
+}
+
+#tg4 {
+	background: #C0C;
 }
 
 ul {
@@ -315,7 +358,7 @@ ul {
 	line-height:200%;
 	font-weight: 400;
     color: #fff;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff2d95, 0 0 30px #ff2d95, 0 0 40px #ff2d95, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
+    webkit-text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff2d95, 0 0 30px #ff2d95, 0 0 40px #ff2d95, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
     letter-spacing: 5px;
 }
 
@@ -357,32 +400,33 @@ ul {
     width: 200px;
 
 }
-
-.jsMovie_event_overlay {
-	
-	height: 350px;
-	width: 350px;
-}
-
-
 	  
-.title {
+.title-left {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
-	Float:left;
+	float:left;
 	text-align:center;
-	font-size: 25px;
 	width:250px;
 	color: #fff;
-	margin-top: 35px;
-	margin-right: 50px;
-	padding-left:5px;
-	padding-top:5px;
-	padding-bottom:5px;
+	padding-left:5px 0 5px;
 	font-weight: 300;
-	border-style:solid;
-	border-width:2px;
-	border-color:white;
+	border: 2px solid #fff;
+	margin: 25px 40px 0 0;
 }
+
+  
+.title-right {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	float:left;
+	text-align:center;
+	width:250px;
+	color: #fff;
+	padding-left:5px 0 5px;
+	font-weight: 300;
+	border: 2px solid #fff;
+	margin: 25px 0 0 40px;
+}
+
+
 
 .customise {
 	font-family: 'Lato', Calibri, Arial, sans-serif;

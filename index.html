@@ -6,7 +6,6 @@
 <script src="./js/scripts.js"></script>
 <script src="./js/timeline_client.js"></script>
 <script src="./js/time_format.js"></script>
-<script language="javascript" type="text/javascript" src="./js/jquery.jsmovie.1.4.1.min.js" ></script>
 <link rel="Stylesheet" type="text/css" href="./css/style.css" />
 <!-- the CSS for Smooth Div Scroll -->
 <link rel="Stylesheet" type="text/css" href="./css/smoothDivScroll.css" />
@@ -40,93 +39,7 @@
 			hotSpotScrolling: false
 		});
 		// END SCROLLABLE FUNCTIONS //
-		
-		// BEGIN VISUALS FUNCTIONS //
-		
-		$('#rte').jsMovie({
-			sequence : "#.png",    //the #### will be replaced with 0001,0002,0003,...
-			folder   : "images/img/1/",       //this is the path where the script can find the image sequence
-			from     : 1,               //the #### will start to replace with 0001
-			to       : 400,              //the #### will start to replace with 0040
-			width    : 350,             
-			height   : 350,            
-			showPreLoader : false,       //we do want to see a preloader animation
-			playOnLoad : true,         //we don't want to have the movie play after the images have been loaded automatically
-			// the preloader animation is located in the folder "images/img/loader.png"
-			// it is a 4x4 image matrix with each image of 40px by 40px
-			loader   : {path:"images/img/loader.png",height:40,width:40,rows:4,columns:4}
-		
-		});
-		
-		
-		$('#rte').jsMovie("addClip","Hello",1,400);
-		
-		$('#rte').jsMovie("playClips"); 
-		
-		
-		
-		$('#Net2').jsMovie({
-			sequence : "#.png",    //the #### will be replaced with 0001,0002,0003,...
-			folder   : "/images/img/1/",       //this is the path where the script can find the image sequence
-			from     : 1,               //the #### will start to replace with 0001
-			to       : 400,              //the #### will start to replace with 0040
-			width    : 350,            
-			height   : 350,           
-			showPreLoader : false,       //we do want to see a preloader animation
-			playOnLoad : true,         //we don't want to have the movie play after the images have been loaded automatically
-			// the preloader animation is located in the folder "images/img/loader.png"
-			// it is a 4x4 image matrix with each image of 40px by 40px
-			loader   : {path:"/images/img/loader.png",height:40,width:40,rows:4,columns:4}
-			
-		});
-		
-		// make frame 1 to frame 20 to a clip an call it Hello. Pa
-		$('#Net2').jsMovie("addClip","Hello",1,400);
-		
-		$('#Net2').jsMovie("playClips"); 
-		
-		
-		/*  $('#TV3').jsMovie({
-			sequence : "#.png",    //the #### will be replaced with 0001,0002,0003,...
-			folder   : "img/3/",       //this is the path where the script can find the image sequence
-			from     : 1,               //the #### will start to replace with 0001
-			to       : 400,              //the #### will start to replace with 0040
-			width    : 350,            
-			height   : 350,             
-			showPreLoader : false,       //we do want to see a preloader animation
-			playOnLoad : true,         //we don't want to have the movie play after the images have been loaded automatically
-			// the preloader animation is located in the folder "images/img/loader.png"
-			// it is a 4x4 image matrix with each image of 40px by 40px
-			loader   : {path:"images/img/loader.png",height:40,width:40,rows:4,columns:4}
-		
-		});
-		
-		// make frame 1 to frame 20 to a clip an call it Hello. Pause the animation for 2 seconds before the next clip is being played
-		$('#TV3').jsMovie("addClip","Hello",1,400);
-		
-		$('#TV3').jsMovie("playClips"); 
-		
-		
-		$('#TG4').jsMovie({
-			sequence : "#.png",    //the #### will be replaced with 0001,0002,0003,...
-			folder   : "img/2/",       //this is the path where the script can find the image sequence
-			from     : 1,               //the #### will start to replace with 0001
-			to       : 400,              //the #### will start to replace with 0040
-			width    : 350,             
-			height   : 350,             
-			showPreLoader : false,       //we do want to see a preloader animation
-			playOnLoad : true,         //we don't want to have the movie play after the images have been loaded automatically
-			// the preloader animation is located in the folder "images/img/loader.png"
-			// it is a 4x4 image matrix with each image of 40px by 40px
-			loader   : {path:"images/img/loader.png",height:40,width:40,rows:4,columns:4}
-		
-		});
-		
-		// make frame 1 to frame 20 to a clip an call it Hello. 
-		$('#TG4').jsMovie("addClip","Hello",1,400);
-		
-		$('#TG4').jsMovie("playClips"); */
-		// END VISUAL FUNCTIONS
+	
 		
 		//Full example of format  here --> you can see that we need a start time and and end time in this specific format. Declan you need to tack on the datetimes to the end of the url http://digitalinc.ie/ScreenSpace/get-tv-shows.php?tv_start_time=27-10-2013%2021:20:00&tv_end_time=27-10-2013%2023:40:00
 		
@@ -151,29 +64,27 @@
 					
 				//clear the container and then append the TV shows to it. 		
 					
-				//Assigning of the 4 Channels its own LI
-				$('ul.tv-shows-container').html('');
+				//Assigning of the 4 Channels its own div
+				$('div.tv-shows-container-0').html('');
 				$(data.tv_shows[0]).each(function(show){
-					$('ul.tv-shows-container').append('<li class="tv-show clear" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</li>'); 
+					$('div.tv-shows-container-0').append('<div class="tv-show clear" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</div>'); 
 				});
 				
-				$('ul.tv-shows-container1').html('');
+				$('div.tv-shows-container-1').html('');
 				$(data.tv_shows[1]).each(function(show){
-					$('ul.tv-shows-container1').append('<li class="tv-show clear" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station +' ' + this.hashtag + ': ' + this.count + '</li>'); 
+					$('div.tv-shows-container-1').append('<div class="tv-show clear" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station +' ' + this.hashtag + ': ' + this.count + '</div>'); 
 				});		
 				
-				/*$('ul.tv-shows-container2').html('');
+				$('div.tv-shows-container-2').html('');
 				$(data.tv_shows[2]).each(function(show){
-					$('ul.tv-shows-container2').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">' + this.station + ' ' + this.hashtag + ': ' + this.count  + '</li>'); 
+					$('div.tv-shows-container-2').append('<div class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">' + this.station + ' ' + this.hashtag + ': ' + this.count  + '</div>'); 
 				});				
 				
-				
-				
-				$('ul.tv-shows-container3').html('');
+				$('div.tv-shows-container-3').html('');
 				$(data.tv_shows[3]).each(function(show){
-					$('ul.tv-shows-container3').append('<li class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ' : ' + this.count +'</li>'); 
+					$('div.tv-shows-container-3').append('<div class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ' : ' + this.count +'</div>'); 
 				
-				});	*/		
+				});		
 				
 			});
 		}
@@ -229,14 +140,15 @@
 </head>
 
 <body>
-<div class="navbar">
-  <div class="birdicon"><img src="./images/left-icon.png" width="190" height="88"  alt=""/></div>
-  <div class="title">WHATS ON NOW</div>
-  <div class="birdicon"><img src="./images/spacer.png" width="80" height="92"  alt=""/></div>
-  <div class="title"> CUSTOMISE </div>
-  <div class="infoicon"> <img src="./images/info-icon.png" width="190" height=88  alt=""/> </div>
-  <div class="clear"></div>
-</div>
+<header>
+    <div class="navbar">
+      <div class="birdicon"><img src="./images/left-icon.png" width="190" height="88"  alt=""/></div>
+      <div class="title-left"><h1>WHATS ON NOW</h1></div>
+      <div class="title-right"><h1>CUSTOMISE</h1></div>
+      <div class="infoicon"> <img src="./images/info-icon.png" width="190" height=88  alt=""/> </div>
+      <div class="clear"></div>
+    </div>
+</header>
 
 <!-- <div id="search_box">
         <input name="search_terms" autofocus/>
@@ -256,11 +168,21 @@
   <!-- END make_me_scrollable --> 
   <!--<a class="close-reveal-modal">&#215;</a> </div>-->
 <!-- END reveal-modal -->
+<div class="content-wrapper">
+    <div class="col-1">
+    	<div id="rte" class="tv-shows-container-0">
+    	</div><!-- END tv-shows-container-0 -->
+    	<div id="rte2" class="tv-shows-container-1">
+    	</div><!-- END tv-shows-container-1 -->
+    </div><!-- END col-1 -->
+    <div class="col-2">
+        <div id="tv3" class="tv-shows-container-2">
+        </div><!-- END tv-shows-container-2 -->
+        <div id="tg4" class="tv-shows-container-3">
+        </div><!-- END tv-shows-container-3 -->
+    </div><!-- END col-2 -->
+</div><!-- END content-wrapper -->
 
-<ul class="tv-shows-container">
-</ul>
-<div id="rte"></div>
-<div id="Net2"></div>
-<ul class="tv-shows-container1"></ul>
+
 </body>
 </html>
