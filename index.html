@@ -69,7 +69,7 @@
 				//Assigning of the 4 Channels its own div
 				$('div.tv-shows-container').html('');
 				$(data.tv_shows).each(function(show){
-					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle">'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</div></div>'); 
+					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><p>'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</p></div></div>'); 
 					
 					var scale = '';
 					var count = this.count;
