@@ -85,7 +85,29 @@
 				$(data.tv_shows[3]).each(function(show){
 					$('div.tv-shows-container-3').append('<div class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ' : ' + this.count +'</div>'); 
 				
-				});		
+				});	
+				
+				$(scale );
+				
+				if (this.count<15)
+				  {
+				  scale="2";
+				  
+				  }
+				else if (this.count<21)
+				  {
+				  scale="4";
+				  
+				  }
+				  else if (this.count>21)
+				  {
+				  scale="8";
+				  
+				}
+				
+				$('#rte').ready(function() {
+				$('#rte').css({ scale: scale });  
+				});	
 				
 			});
 		}
@@ -135,28 +157,7 @@
 		
 		//BEGIN CSS ANIMATION FUNCTIONS
 		
-		var count;
-		var scale;
 		
-		if (this.count<15)
-		  {
-		  scale="2";
-		  
-		  }
-		else if (this.count<21)
-		  {
-		  scale="4";
-		  
-		  }
-		  else if (this.count>21)
-		  {
-		  scale="8";
-		  
-		}
-		
-		$('#rte').ready(function() {
-		$('#rte').css({ scale: scale });  
-		});
 	});
 	//END DOCUMENT READY FUNCTION
 		  
