@@ -161,6 +161,7 @@ header {
 	width: 190px;
 	border-radius: 50%;
 	height: 190px;
+	transform: scale(0.5);
 }
 
 .tv-show .circle p {

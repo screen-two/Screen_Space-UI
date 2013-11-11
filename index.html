@@ -44,7 +44,8 @@
 	
 		
 		//Full example of format  here --> you can see that we need a start time and and end time in this specific format. Declan you need to tack on the datetimes to the end of the url http://digitalinc.ie/ScreenSpace/get-tv-shows.php?tv_start_time=27-10-2013%2021:20:00&tv_end_time=27-10-2013%2023:40:00
-		
+		var counts = {};
+		var scales = {};
 		// BEGIN REFRESH FUNCTIONS
 		//Beginning of the refresh funtion: This calculates the times, creates a new URL and gets the TV show data. 
 		function refresh(){
@@ -59,6 +60,8 @@
 			var url = 'http://digitalinc.ie/ScreenSpace/get-tv-shows.php?tv_start_time=' + now.format("dd-mm-yyyy%20HH:MM:00") + '&tv_end_time=' + then.format("dd-mm-yyyy%20HH:MM:00");
 			//End of Declan's code for calculating the time
 			
+			
+			
 			//get the TV shows based on the URL
 			$.get(url, function(data){
 				
@@ -69,25 +72,37 @@
 				//Assigning of the 4 Channels its own div
 				$('div.tv-shows-container').html('');
 				$(data.tv_shows).each(function(show){
+					if(isNaN(this.count) || this.count == null){
+						this.count = 0;
+					}
 					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><p>'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</p></div></div>'); 
 					
-					var scale = '';
-					var count = this.count;
-													
-					if (count<15){
-						scale="0.8";
+					var scale = 0.5;
+					
+					if( scales[this.station] === undefined ) {
+						scales[this.station] = 0.5;
+					}
+					
+					scale = scales[this.station];
+					
+					if( counts[this.station] === undefined ) {
+						counts[this.station] = this.count;
+					}
+					
+					if(this.count > counts[this.station] + 5) {
+						scale = parseFloat(scale) + 0.2;
+					}else if(this.count > counts[this.station] + 1) {
+						scale = parseFloat(scale) + 0.1;
 					}
 									
-					else if (count<21){
-						scale = "1";
-					}
-					  
-					else if (count>21){
-						scale = "1.2";
+					if(scale >= 1.2) {
+						scale = 1.2;
 					}
 					
-					$('#' + this.station.toLowerCase() + ' div.circle').css({scale: scale});  
 					
+					$('#' + this.station.toLowerCase() + ' div.circle').css('transform', 'scale(' + scale + ')');  
+					counts[this.station] = this.count;
+					scales[this.station] = scale;
 										
 				});
 				
