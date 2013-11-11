@@ -67,9 +67,9 @@
 				//clear the container and then append the TV shows to it. 		
 					
 				//Assigning of the 4 Channels its own div
-				$('div.tv-shows-container-0').html('');
-				$(data.tv_shows[0]).each(function(show){
-					$('div.tv-shows-container-0').append('<div class="tv-show clear" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</div>'); 
+				$('div.tv-shows-container').html('');
+				$(data.tv_shows).each(function(show){
+					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle">'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</div></div>'); 
 					
 					var scale = '';
 					var count = this.count;
@@ -86,89 +86,12 @@
 						scale = "1.2";
 					}
 					
-					$('#rte').ready(function() {
-						$('#rte').css({scale: scale});  
-					});	
+					$('#' + this.station.toLowerCase() + ' div.circle').css({scale: scale});  
+					
 										
 				});
 				
-				// END div.tv-shows-container-0
-				
-				$('div.tv-shows-container-1').html('');
-				$(data.tv_shows[1]).each(function(show){
-					$('div.tv-shows-container-1').append('<div class="tv-show clear" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station +' ' + this.hashtag + ': ' + this.count + '</div>');
-					
-					var scale = '';
-					var count = this.count;
-													
-					if (count<15){
-						scale="0.8";
-					}
-									
-					else if (count<21){
-						scale = "1";
-					}
-					  
-					else if (count>21){
-						scale = "1.2";
-					}
-					
-					$('#rte2').ready(function() {
-						$('#rte2').css({scale: scale});   
-					});	
-				});		
-				// END div.tv-shows-container-1
-				
-				$('div.tv-shows-container-2').html('');
-				$(data.tv_shows[2]).each(function(show){
-					$('div.tv-shows-container-2').append('<div class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">' + this.station + ' ' + this.hashtag + ': ' + this.count  + '</div>'); 
-					
-					var scale = '';
-					var count = this.count;
-					
-					if (count<15){
-						scale="0.8";
-					}
-									
-					else if (count<21){
-						scale = "1";
-					}
-					  
-					else if (count>21){
-						scale = "1.2";
-					}
-					
-					$('#tv3').ready(function() {
-						$('#tv3').css({scale: scale});   
-					});	
-				});		
-				// END div.tv-shows-container-2		
-				
-				$('div.tv-shows-container-3').html('');
-				$(data.tv_shows[3]).each(function(show){
-					$('div.tv-shows-container-3').append('<div class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '">'+ this.station + ' ' + this.hashtag + ' : ' + this.count +'</div>'); 
-				var scale = '';
-					var count = this.count;
-													
-					if (count<15){
-						scale="0.8";
-					}
-									
-					else if (count<21){
-						scale = "1";
-					}
-					  
-					else if (count>21){
-						scale = "1.2";
-					}
-					
-					$('#tg4').ready(function() {
-						$('#tg4').css({scale: scale});  
-					});	
-				
-				});	
-				// END div.tv-shows-container-3
-				
+				// END div.tv-shows-container
 				
 			});
 		}
@@ -256,18 +179,9 @@
   <!--<a class="close-reveal-modal">&#215;</a> </div>-->
 <!-- END reveal-modal -->
 <div class="content-wrapper">
-    <div class="col-1">
-    	<div id="rte" class="tv-shows-container-0">
-    	</div><!-- END tv-shows-container-0 -->
-    	<div id="rte2" class="tv-shows-container-1">
-    	</div><!-- END tv-shows-container-1 -->
-    </div><!-- END col-1 -->
-    <div class="col-2">
-        <div id="tv3" class="tv-shows-container-2">
-        </div><!-- END tv-shows-container-2 -->
-        <div id="tg4" class="tv-shows-container-3">
-        </div><!-- END tv-shows-container-3 -->
-    </div><!-- END col-2 -->
+    <div class="tv-shows-container">
+    </div><!-- END tv-shows-container -->
+    <div class="clear"></div>
 </div><!-- END content-wrapper -->
 
 

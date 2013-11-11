@@ -40,7 +40,7 @@ ul, ol li {
 	list-style: none;
 }
 
-clear {
+.clear {
 	clear: both;
 }
 
@@ -145,53 +145,45 @@ header {
 
 /* ---- BEGIN VISUALS STYLES ---- */
 
-.col-1 {
-	float:left;
-	width: 31%;
-	text-align: center;
-	margin: 0 0 0 35px;
+.tv-shows-container {
+	width: 750px;
+	height: 500px;
+	margin: auto;
 }
 
-#rte {
+.tv-show {
+	float:left;
+	width: 49%;
+}
+
+.tv-show .circle {
+	width: 190px;
+	border-radius: 50%;
+	height: 190px;
+}
+
+#rte1 .circle {
 	background: #F03;
-	width: 60%;
-	border-radius: 50%;
-	height: 190px;
 }
 
-#rte2 {
+#rte2 .circle {
 	background: #0C0;
-	width: 60%;
-	border-radius: 50%;
-	height: 190px;
 }
 
-.col-2 {
-	float:left;
-	width: 31%;
-	text-align: center;
-}
-
-#tv3 {
+#tv3 .circle {
 	background: #36F;
-	width: 60%;
-	border-radius: 50%;
-	height: 190px;
 }
 
-#tg4 {
+#tg4 .circle{
 	background: #C0C;
-	width: 60%;
-	border-radius: 50%;
-	height: 190px;
 }
-
+/*
 .tv-show {
 	font-size: 0.9em;
 	margin: 20px 0;
 	padding: 85px 4px;
 }
-
+*/
 
 /* ---- END VISUALS STYLES ---- */
 
