@@ -79,8 +79,8 @@
 					
 					var scale = 0.5;
 					
-					if( scales[this.station] === undefined ) {
-						scales[this.station] = 0.5;
+					if( scales[this.tv_show_id] === undefined ) {
+						scales[this.tv_show_id] = 0.5;
 					}
 					
 					scale = scales[this.station];
@@ -102,7 +102,7 @@
 					
 					$('#' + this.station.toLowerCase() + ' div.circle').css('transform', 'scale(' + scale + ')');  
 					counts[this.station] = this.count;
-					scales[this.station] = scale;
+					scales[this.tv_show_id] = scale;
 										
 				});
 				
