@@ -64,7 +64,7 @@
 
 	
     <!-- Define app icon for each platform. -->
-    <icon src="icon.png" />
+    <icon src="icons/ios/icon.png" />
 
     
     <icon src="icons/ios/icon-50.png"            gap:platform="ios"        width="50" height="50" />
