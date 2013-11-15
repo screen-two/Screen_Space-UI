@@ -75,6 +75,7 @@
 					if(isNaN(this.count) || this.count == null){
 						this.count = 0;
 					}
+					
 					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><p>'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</p></div></div>'); 
 					
 					// set the scale variable to 
@@ -100,12 +101,12 @@
 						scale = 1.2;
 					}
 					
-					
 					$('#' + this.station.toLowerCase() + ' div.circle').css('transform', 'scale(' + scale + ')');  
 					counts[this.station] = this.count;
 					scales[this.tv_show_id] = scale;
 										
 				});
+				
 				
 				// END div.tv-shows-container
 				
