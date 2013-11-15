@@ -173,19 +173,23 @@ header {
 }
 
 #rte1 .circle {
-	background: #F03;
+	border: 2px solid #F03;
+	box-shadow:  0px 0px 15px 5px #FF3300;
 }
 
 #rte2 .circle {
-	background: #0C0;
+	border: 2px solid #0C0;
+	box-shadow:  0px 0px 15px 5px  #00FF00;
 }
 
 #tv3 .circle {
-	background: #36F;
+	border: 2px solid #36F;
+	box-shadow: 0px 0px 15px 5px #00CCFF;
 }
 
 #tg4 .circle{
-	background: #C0C;
+	border: 2px solid #C0C;
+	box-shadow:  0px 0px 15px 5px #FF66FF;
 }
 /*
 .tv-show {
