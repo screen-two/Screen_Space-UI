@@ -85,7 +85,7 @@
 						scales[this.tv_show_id] = 0.5;
 					}
 					
-					scale = scales[this.station];
+					scale = scales[this.tv_show_id];
 					
 					if( counts[this.station] === undefined ) {
 						counts[this.station] = this.count;
@@ -101,7 +101,7 @@
 						scale = 1.2;
 					}
 					
-					$('#' + this.station.toLowerCase() + ' div.circle').css('-webkit-transform', 'scale(' + scale + ')');  
+					$('#' + this.station.toLowerCase() + ' div.circle').css('transform', 'scale(' + scale + ')');  
 					counts[this.station] = this.count;
 					scales[this.tv_show_id] = scale;
 										
