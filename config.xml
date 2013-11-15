@@ -77,7 +77,7 @@
    
    	
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
+    <gap:splash src="icons/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
 
     <!--
         Define access to external domains.
