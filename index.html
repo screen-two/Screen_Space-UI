@@ -4,21 +4,12 @@
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script src="./js/transit.min.js"></script>
 <script type="text/javascript" src="./js/pace.js"></script>
-<script src="./js/scripts.js"></script>
 <script src="./js/timeline_client.js"></script>
 <script src="./js/time_format.js"></script>
 <link rel="Stylesheet" type="text/css" href="./css/style.css" />
 <!-- the CSS for Smooth Div Scroll -->
 <link rel="Stylesheet" type="text/css" href="./css/smoothDivScroll.css" />
 
-<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
-<script>
-	  // this is important for IEs
-	  var polyfilter_scriptpath = './js/';
-</script>
-<script src="./js/cssParser.js"></script>
-
-<script src="./js/css-filters-polyfill.js"></script>
 
 <!-- MODAL CONTENT -->
 
@@ -76,7 +67,7 @@
 						this.count = 0;
 					}
 					
-					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><p>'+ this.station + ' ' + this.hashtag + ': ' + this.count +'</p></div></div>'); 
+					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><p>'+ this.station + ' ' + this.hashtag + ': ' + this.count +'<a data-reveal-id="my_modal" data-animation="fade"></a></p></div></div>'); 
 					
 					// set the scale variable to 
 					var scale = 0.5;
@@ -104,10 +95,33 @@
 					$('#' + this.station.toLowerCase() + ' div.circle').css('transform', 'scale(' + scale + ')');  
 					counts[this.station] = this.count;
 					scales[this.tv_show_id] = scale;
-										
+	
+					$('#' + this.station.toLowerCase() + ' div.circle p:first').click(function(){
+						var p = $(this);
+						var show = p.parents('div.tv-show:first');
+						
+						var hashtag = show.attr('data-hashtag');
+						
+						var url = 'http://digitalinc.ie/ScreenSpace/search.php';
+						$.ajax({
+							url: url,
+							data: {
+								q: hashtag,
+								count: 10
+							},
+							success: function(data){
+								//p.children('a:first').trigger('click');				
+								// Display the results
+								$('#search_results').html(data);
+								//taken from jquery.reveal.js - Give me the element with the id my_modal. Append the data to the search result then call the reveal method to show it 
+								$('#my_modal').reveal($(this).data());
+								
+							}
+						})
+						//return false;
+					})
+			
 				});
-				
-				
 				// END div.tv-shows-container
 				
 			});
@@ -121,9 +135,11 @@
 		setInterval(refresh, 20000); //here's where I'm setting the interval in miliseconds. 
 		// END REFRESH FUNCTIONS
 		
-		/*//BEGIN TWITTER CLIENT FUNCTIONS
+		
+		
+		//BEGIN TWITTER CLIENT FUNCTIONS
 		// Run when Search button is clicked
-		$('#search_button').click(function(){
+		/*$('#search_button').click(function(){
 			
 			// Display a progress indicator
 			$('#search_results').html(' Searching Twitter...');
@@ -135,18 +151,11 @@
 			// Send the search terms to the server in an Ajax request
 			// This URL is for illustration only
 			// You MUST change it to your server
-			
-			var date = new Date();
-			var hours = date.getHours();
-			var day = date.getDate();
-			var month = date.getMonth() + 1; //Months are zero based
-			var year = date.getFullYear();
-			
-			date = year + "-" + month + "-" + day;// + " " + hours + ":00:00";
+		
 			
 			
 			$.ajax({
-				url: 'http://digitalinc.ie/ScreenSpace/search.php?q=' + search_value + '&count=10&until=' + date,
+				url: 'http://digitalinc.ie/ScreenSpace/search.php?q=' + search_value + '&count=10',
 				success: function(data){
 										
 					// Display the results
@@ -156,7 +165,9 @@
 		})*/
 		//END TWITTER CLIENT FUNCTIONS
 		
-		//BEGIN CSS ANIMATION FUNCTIONS
+		
+		
+		
 		
 		
 	});
@@ -177,23 +188,24 @@
     </div>
 </header>
 
-<!-- <div id="search_box">
+<!--<div id="search_box">
         <input name="search_terms" autofocus/>
-        <button id="search_button"  a href="#" data-reveal-id="my_modal" data-animation="fade">Search</button>--><!-- END search_button -->
+        <button id="search_button"  a href="#" data-reveal-id="my_modal" data-animation="fade">Search</button>-->
+        <!-- END search_button -->
 <!--</div>-->
-<!-- END search_box --> 
 
-<!--
-  	<a href="#" data-reveal-id="my_modal" data-animation="fade">Show the Twitter Feed </a>
-    -->
 
-<!--<div id="my_modal" class="reveal-modal">
+
+  	
+   
+
+<div id="my_modal" class="reveal-modal">
   <div id="make_me_scrollable">
-    <div id="search_results"></div>-->
+    <div id="search_results"></div>
     <!-- END search_results --> 
-  <!--</div>-->
+ </div>
   <!-- END make_me_scrollable --> 
-  <!--<a class="close-reveal-modal">&#215;</a> </div>-->
+ <a class="close-reveal-modal">&#215;</a> </div>
 <!-- END reveal-modal -->
 <div class="content-wrapper">
     <div class="tv-shows-container">
