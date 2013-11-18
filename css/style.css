@@ -4,8 +4,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
-	background: url("../images/BACKGROUND.jpg") no-repeat fixed center center;
-	background-size: 100%;
+	background: url("../images/BACKGROUND.jpg") no-repeat fixed center center / 100% auto rgba(0, 0, 0, 0);
 	color: #fff;
 }
 
@@ -232,12 +231,13 @@ header {
 	display: inline;
 	border-radius: 2px;
 	border-style: solid;
-	border-color: #820174;
+	border-color: #fff;
 	
 	margin-left: 10px;
 	margin-right: 40px;
 	margin-top: 80px;
 	padding-bottom: 10px;
+	padding-left: 10px;
 }
 
 .tweet_left {
@@ -298,6 +298,7 @@ header {
 	margin-right: 4px;
 	font-weight: 400;
 	text-decoration: none;
+	padding-bottom:10px;
 }
 
 .tweet_text {
@@ -308,7 +309,8 @@ header {
 	word-wrap: break-word;
 	width: 100%;
 	margin: 0 0 3px;
-	padding: 0;
+	padding-bottom: 10px;
+	padding-top: 10px;
 }
 
 .tweet_text a {
