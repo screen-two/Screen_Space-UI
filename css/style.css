@@ -5,6 +5,7 @@
 body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	background: url("../images/BACKGROUND.jpg") no-repeat fixed center center;
+	background-size: 100%;
 	color: #fff;
 }
 
