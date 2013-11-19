@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-
 <script src="./js/transit.min.js"></script>
 <script type="text/javascript" src="./js/pace.js"></script>
 <script src="./js/timeline_client.js"></script>
@@ -25,8 +22,6 @@
 
 <!-- Safe to remove this -->
 <script type="text/javascript">
-
-
 	
 	
 	// Initialize the plugin with no custom options
@@ -183,51 +178,42 @@
 </head>
 
 <body>
+<header>
+    <div class="navbar">
+      <div class="birdicon"><img src="./images/left-icon.png" width="190" height="88"  alt=""/></div>
+      <div class="title-left"><h1>WHATS ON NOW</h1></div>
+      <div class="title-right"><h1>CUSTOMISE</h1></div>
+      <div class="infoicon"> <img src="./images/info-icon.png" width="190" height=88  alt=""/> </div>
+      <div class="clear"></div>
+    </div>
+</header>
+
+<!--<div id="search_box">
+        <input name="search_terms" autofocus/>
+        <button id="search_button"  a href="#" data-reveal-id="my_modal" data-animation="fade">Search</button>-->
+        <!-- END search_button -->
+<!--</div>-->
 
 
-<div id="container" class="container">
 
-    <ul id="scene" class="scene">
-    
-        <li class="layer" data-depth="0.00"><img src="images/bg1.png"  width: 100%></li> 
-        <li class="layer" data-depth="0.80"><img src="images/bg4.png"  width: 100%></li> 
-        <li class="layer" data-depth="0.60"><img src="images/bg3.png"  width: 100%></li>
-        <li class="layer" data-depth="0.00"><img src="images/bg5.png"   width: 100%></li> 
-        <li class="layer" data-depth="0.20"><img src="images/bg2.png"  width: 100%></li>
-        <li class="layer" data-depth="0.00">
-            <header>
-                <div class="navbar">
-                    <div class="birdicon"><img src="./images/left-icon.png" width="190" height="88"  alt=""/></div>
-                    <div class="title-left"><h1>WHATS ON NOW</h1></div>
-                    <div class="title-right"><h1>CUSTOMISE</h1></div>
-                    <div class="infoicon"> <img src="./images/info-icon.png" width="190" height=88  alt=""/> </div>
-                    <div class="clear"></div>
-                </div> <!-- END navbar -->
-            </header><!-- END header -->
-        </li><!-- END li.layer -->
-        
-        <li class="layer" data-depth="0.00">
-            <div id="my_modal" class="reveal-modal">
-                <div id="make_me_scrollable">
-                <div id="search_results"></div><!-- END search-results -->
-            	<a class="close-reveal-modal">&#215;</a> 
-            </div><!-- END my_modal -->
-            <div class="content-wrapper">
-                <div class="tv-shows-container"></div><!-- END tv-shows-container -->
-                <div class="clear"></div>
-       		</div><!-- END content-wrapper -->
-		</li><!-- END li.layer -->
-	</ul><!-- END scene -->
-</div><!-- END container -->
-    
-    <script src="./js/parallax.js"></script>
-	<script>
+  	
+   
 
-	// Pretty simple huh?
-	var scene = document.getElementById('scene');
-	var parallax = new Parallax(scene);
+<div id="my_modal" class="reveal-modal">
+  <div id="make_me_scrollable">
+    <div id="search_results"></div>
+    <!-- END search_results --> 
+ 	</div>
+  <!-- END make_me_scrollable --> 
+ <a class="close-reveal-modal">&#215;</a> 
+ </div>
+<!-- END reveal-modal -->
+<div class="content-wrapper">
+    <div class="tv-shows-container">
+    </div><!-- END tv-shows-container -->
+    <div class="clear"></div>
+</div><!-- END content-wrapper -->
 
-	</script>
 
 </body>
 </html>
