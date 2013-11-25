@@ -4,13 +4,17 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta charset="UTF-8">
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>   
+<script src="./js/modernizr-2.6.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 
 <script src="./js/transit.min.js"></script>
 <script type="text/javascript" src="./js/pace.js"></script>
 <script src="./js/timeline_client.js"></script>
 <script src="./js/time_format.js"></script>
-
+<link rel="Stylesheet" type="text/css" href="./css/style.css" />
+<!-- the CSS for Smooth Div Scroll -->
+<link rel="Stylesheet" type="text/css" href="./css/smoothDivScroll.css" />
+<link rel="stylesheet" type="text/css" href="./css/component2.css" />
 
 <!-- MODAL CONTENT -->
 
@@ -21,14 +25,6 @@
 <script src="./js/jquery.kinetic.js" type="text/javascript"></script>
 <script src="./js/jquery.smoothdivscroll-1.3-min.js" type="text/javascript"></script>
 
-<script src="./js/demo2.js"></script>
-<script src="./js/modernizr-2.6.2.min.js"></script>
-
-
-<link rel="Stylesheet" type="text/css" href="./css/style.css" />
-<!-- the CSS for Smooth Div Scroll -->
-<link rel="Stylesheet" type="text/css" href="./css/smoothDivScroll.css" />
-<link rel="stylesheet" type="text/css" href="css/component2.css" />
 
 <script type="text/javascript">
 
@@ -220,34 +216,20 @@
             	<a class="close-reveal-modal">&#215;</a> 
             </div><!-- END my_modal -->
             <div class="content-wrapper">
-                <div class="tv-shows-container">
-                	<div class="component">
-		
-                    <!-- Start Nav Structure -->
-                    <button class="cn-button" id="cn-button">RTE</button>
-                    <div class="cn-wrapper" id="cn-wrapper">
-                        <ul>
-                            <li><a href="#"><span>RTE 1</span></a></li>
-                            <li><a href="#"><span>RTE2</span></a></li>
-                            <li><a href="#"><span>TV3</span></a></li>
-                            <li><a href="#"><span>TG4</span></a></li>
-                            <li><a href="#"><span>3E</span></a></li>
-                            <li><a href="#"><span>BBC1</span></a></li>
-                            <li><a href="#"><span>BBC3</span></a></li>
-                         </ul>
-                    </div>
-                    <!-- End of Nav Structure -->
-                </div>
-			
-		</div><!-- /container -->
-                
-                </div><!-- END tv-shows-container -->
+                <div class="tv-shows-container"></div><!-- END tv-shows-container -->
                 <div class="clear"></div>
        		</div><!-- END content-wrapper -->
 		</li><!-- END li.layer -->
+        <li class="layer" data-depth="0.00">
+        	
+        
+        </li>
 	</ul><!-- END scene -->
-</div><!-- END container -->
     
+</div><!-- END container -->
+ 	
+    <script src="./js/polyfills.js"></script>
+    <script src="./js/demo2.js"></script>
     <script src="./js/parallax.js"></script>
 	<script>
 
