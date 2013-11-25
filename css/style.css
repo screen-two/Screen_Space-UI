@@ -56,6 +56,10 @@ img {
   margin: 0 auto;
 }
 
+.scene img {
+  width: 100% !important;
+}
+
 
 
 /* /  We can set individual layer opacities here/ */
