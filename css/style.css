@@ -110,6 +110,16 @@ header {
 
 }
 
+.white_cricle {
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    float: left;
+    height: 15px;
+    margin-right: 15px;
+    margin-top: 50px;
+    width: 15px;
+}
+
 .birdicon img {
         width: 90%;
 
