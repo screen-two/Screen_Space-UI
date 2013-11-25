@@ -110,6 +110,8 @@ header {
 
 }
 
+
+
 .white_circle {
     background-color: #FFFFFF;
     border-radius: 50%;
@@ -122,11 +124,12 @@ header {
 
 
 
-.infoicon{
+.infoicon {
         float:left;
-
 }
-          
+  
+
+        
 .title-left {
         font-family: 'Lato', Calibri, Arial, sans-serif;
         float:left;
