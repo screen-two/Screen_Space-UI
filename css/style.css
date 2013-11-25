@@ -56,7 +56,7 @@ img {
   margin: 0 auto;
 }
 
-.scene img {
+.scene li.layer img.background-img {
   width: 100% !important;
 }
 
