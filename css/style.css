@@ -186,7 +186,8 @@ header {
         width: 750px;
         height: 500px;
         margin: auto;
-        padding: 200px 0 0 60px;
+        padding-top: 200px;
+		padding-left: 60px;
 		color:#FFF;
 }
 
