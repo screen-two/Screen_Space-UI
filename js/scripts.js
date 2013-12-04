@@ -3,7 +3,7 @@
 	$(document).ready(function () {
 		//Bind a click to the anchors in the tab-bar, then prevent the default action of a link, store the href of the clicked link in a nextPage variable, remove			/		//the current class from the current page and finally add the class to the clicked page.
 		//http://mobile.tutsplus.com/tutorials/phonegap/phonegap-from-scratch-app-template/
-		$('#tab-bar a').on('click', function(e){
+		$('#nav-bar a').on('click', function(e){
 			e.preventDefault();
 			var nextPage = $(e.target.hash);
 			$("#pages .current").removeClass("current");
