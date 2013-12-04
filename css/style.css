@@ -42,6 +42,18 @@ ul, ol li {
         clear: both;
 }
 
+.page { 
+       -webkit-transform: translate3d(0,0,0); 
+} 
+
+#pages > div {
+    display: none;
+}
+#pages > div.current {
+    display: block;
+}
+
+
 /* //// END GENERAL PAGE STYLES //// */
 
 /* //// BEGIN PARALLAX  STYLES //// */
