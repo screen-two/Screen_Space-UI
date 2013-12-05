@@ -52,9 +52,8 @@
 			// add an hour, for 30 min block use ( then.getMinutes() + 30 );  the amount of time makes a big deifference to what you get back and might need to change based on time of day, shorter in the morning?
 			var then = new Date(now);
 			then.setMinutes(then.getMinutes()+10);
-			var url = 'http://screenspace-screenspace.rhcloud.com/get-tv-shows.php?tv_start_time=' + now.format("dd-mm-yyyy%20HH:MM:00") + '&tv_end_time=' + then.format("dd-mm-yyyy%20HH:MM:00");
+			var url = 'http://146.185.170.24/screenspace/php/get-tv-shows.php?tv_start_time=' + now.format("dd-mm-yyyy%20HH:MM:00") + '&tv_end_time=' + then.format("dd-mm-yyyy%20HH:MM:00");
 			//End of Declan's code for calculating the time
-			
 			
 			
 			//get the TV shows based on the URL
@@ -71,7 +70,7 @@
 						this.count = 0;
 					}
 					
-					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><p>'+ this.station + ' ' + this.hashtag + ': ' + this.count +'<a data-reveal-id="my_modal" data-animation="fade"></a></p></div></div>'); 
+					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><div class="inner-two"><div class="inner-two" ><div class="inner-three"><p>'+ this.station + '<br> ' + this.hashtag + ': ' + this.count +'<a data-reveal-id="my_modal" data-animation="fade"></a></p></div></div></div></div></div>');
 					
 					// set the scale variable to 
 					var scale = 0.5;
@@ -106,7 +105,7 @@
 						
 						var hashtag = show.attr('data-hashtag');
 						
-						var url = 'http://digitalinc.ie/ScreenSpace/search.php';
+						var url = 'http://146.185.170.24/screenspace/php/search.php';
 						$.ajax({
 							url: url,
 							data: {
@@ -131,49 +130,13 @@
 			});
 		}
 		
-		
 		//get the data
 
 		refresh();
 		//every minute go back and get the data about the TV shows from the database...
 		setInterval(refresh, 3000); //here's where I'm setting the interval in miliseconds. 
 		// END REFRESH FUNCTIONS
-		
-		
-		
-		//BEGIN TWITTER CLIENT FUNCTIONS
-		// Run when Search button is clicked
-		/*$('#search_button').click(function(){
-			
-			// Display a progress indicator
-			$('#search_results').html(' Searching Twitter...');
-			
-			// Get the value of the input field
-			// Encode it for use in a URL
-			var search_value = encodeURIComponent($('input[name=search_terms]').val());
-			
-			// Send the search terms to the server in an Ajax request
-			// This URL is for illustration only
-			// You MUST change it to your server
-		
-			
-			
-			$.ajax({
-				url: 'http://digitalinc.ie/ScreenSpace/search.php?q=' + search_value + '&count=10',
-				success: function(data){
-										
-					// Display the results
-					$('#search_results').html(data);
-				}
-			})
-		})*/
-		//END TWITTER CLIENT FUNCTIONS
-		
-		
-		
-		
-		
-		
+	
 	});
 	//END DOCUMENT READY FUNCTION
 		  
