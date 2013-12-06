@@ -52,7 +52,7 @@
 			// add an hour, for 30 min block use ( then.getMinutes() + 30 );  the amount of time makes a big deifference to what you get back and might need to change based on time of day, shorter in the morning?
 			var then = new Date(now);
 			then.setMinutes(then.getMinutes()+10);
-			var url = 'http://146.185.170.24/screenspace/php/get-tv-shows.php?tv_start_time=' + now.format("dd-mm-yyyy%20HH:MM:00") + '&tv_end_time=' + then.format("dd-mm-yyyy%20HH:MM:00");
+			var url = 'http://digitalinc.ie/ScreenSpace/get-tv-shows.php?tv_start_time=' + now.format("dd-mm-yyyy%20HH:MM:00") + '&tv_end_time=' + then.format("dd-mm-yyyy%20HH:MM:00");
 			//End of Declan's code for calculating the time
 			
 			
@@ -105,7 +105,7 @@
 						
 						var hashtag = show.attr('data-hashtag');
 						
-						var url = 'http://146.185.170.24/screenspace/php/search.php';
+						var url = 'http://digitalinc.ie/ScreenSpace/search.php';
 						$.ajax({
 							url: url,
 							data: {
