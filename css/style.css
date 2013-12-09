@@ -666,8 +666,8 @@ a:hover {
 } 
 
 
-.instructions_modal {
-	
+.instructions_modal img {
+	width: 50%;
 }
 
 /*  ///////////////////////// INFO MODAL  STYLES /////////////////// */
