@@ -669,11 +669,12 @@ a:hover {
 	top: 0;
 	padding: 0;
 	margin: 0;
+	width: 93%;
 }
 
 
 #instructions_modal img {
-	width: 50%;
+	width: 75%;
 }
 
 /*  ///////////////////////// INFO MODAL  STYLES /////////////////// */
