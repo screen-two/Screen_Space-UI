@@ -665,6 +665,12 @@ a:hover {
 	cursor: pointer;
 } 
 
+#instructions_modal {
+	top: 0;
+	padding: 0;
+	margin: 0;
+}
+
 
 #instructions_modal img {
 	width: 50%;
