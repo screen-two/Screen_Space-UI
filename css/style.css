@@ -530,14 +530,14 @@ header {
 
 .tweet_username {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
-	color: #820174;
+	color: #5799DB;
 	font-size: 30px;
 	margin-top: 4px;
 	margin-bottom: 4px;
 }
 
 .tweet_username a {
-	color: #690156;
+	color: #5799DB;
 	font-size: 20px;
 	font-weight: 400;
 	text-decoration: none;
