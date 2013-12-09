@@ -665,6 +665,11 @@ a:hover {
 	cursor: pointer;
 } 
 
+
+.instructions_modal {
+	
+}
+
 /*  ///////////////////////// INFO MODAL  STYLES /////////////////// */
 .info_icon {
 	width: 99px;
