@@ -700,9 +700,24 @@ a:hover {
 .info_container {
 	margin-left: auto;
 	margin-right: auto;
-	width: 500px;
+	width: 520px;
     background-color: rgba(0, 0, 0, 0.8);
 
+}
+.team-icons {
+	
+}
+
+.team-icons h3 {
+	color: #fff;
+	font-weight: 100;
+}
+
+.team-icons ul li{
+	padding: 0 5px;
+	margin: 0;
+	display: inline-block;
+	color: #fff;
 }
 
 .face {
