@@ -121,6 +121,73 @@ header {
 	margin-right: 10px;
 }
 
+.count_caption {
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 25pt;
+	align: centre;
+	font-weight: 800;
+	text-align: center;
+	text-shadow: -0.06em 0 red, 0.06em 0 cyan;
+	-webkit-opacity: 0.6;
+}
+
+
+.count_caption p {
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 25pt;
+	align: centre;
+	font-weight: 800;
+	text-align: center;
+	text-shadow: -0.06em 0 red, 0.06em 0 cyan;
+	-webkit-opacity: 0.9;
+}
+
+
+.station_caption{
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	font-size: 50pt;
+	align: centre;
+	padding-top: 15px;
+	font-weight: 900;
+	text-align: center;
+	text-shadow: -0.06em 0 red, 0.06em 0 cyan; 
+	-webkit-transform: rotate(-90deg);
+	position: fixed;
+	top: 35px;
+	right: 180px;  
+	letter-spacing: 2px;
+	line-height: 1.5;
+	
+
+}
+
+
+.connector{
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	font-size: 50pt;
+	align: centre;
+	padding-top: 15px;
+	text-align: center;
+	text-shadow: -0.06em 0 red, 0.06em 0 cyan; 
+	-webkit-transform: rotate(-45deg);
+	position: fixed;
+	top: 170px;
+	right: 222px;   
+	letter-spacing: 2px;
+	line-height: 1.5;
+
+}
+
+.caption{
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	padding-top: 15px;
+	font-size: 22pt;
+	padding-top: 15px;
+	text-align: center;
+
+
+}
+
 
 
 .white_circle {
@@ -556,7 +623,7 @@ a:hover {
 .reveal-modal {
 	visibility: hidden;
 	top: 100px; 
-	width: 80%;
+	width: 99%;
 	position: absolute;
 	z-index: 101;
 	padding: 30px 40px 34px;
@@ -599,6 +666,78 @@ a:hover {
 	font-weight: bold;
 	cursor: pointer;
 } 
+
+/*  ///////////////////////// INFO MODAL  STYLES /////////////////// */
+.info_icon {
+	width: 99px;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 100;
+	font-size: 30px;
+	color: #fff;
+	-webkit-font-smoothing: antialiased;
+	text-align: center;	
+}
+
+.info_text {
+	width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 100;
+	font-size: 30px;
+	color: #fff;
+	-webkit-font-smoothing: antialiased;
+	text-align: center;	
+}
+
+.info_container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+
+.face {
+	float: left;
+	padding-left: 4px;
+	padding-bottom: 18px;
+}
+
+
+.names {
+	width: 100%;
+	text-align: center;
+	color: #FFF;
+	font-weight: 200;
+	font-size: 18px;
+	padding-right: 5px;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+.icons_row{
+	width: 208px;
+	padding-top: 20px;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+.icons_row img{
+	float: left;
+	padding: 8px;	
+}
+
+.icons_row img:hover {
+	border: 2px dashed #fff;
+	border-radius: 50%;
+}
+
+.logo{
+	width: 480px;	
+}
+
+
 
 /* //// END REVEAL MODALS STYLES //// */
 

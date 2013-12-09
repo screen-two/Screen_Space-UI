@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-
-<script src="./js/transit.min.js"></script>
-<script type="text/javascript" src="./js/pace.js"></script>
 <script src="./js/timeline_client.js"></script>
 <script src="./js/time_format.js"></script>
 <link rel="Stylesheet" type="text/css" href="./css/style.css" />
@@ -25,7 +23,30 @@
 
 <script type="text/javascript">
 
-
+	//Check to see if there is an internet connection
+		
+	//Solution from http://stackoverflow.com/questions/17377579/how-to-check-internet-connection-in-phonegap-periodically
+	//Alert plugin from http://labs.voronianski.com/jquery.avgrund.js/
+	var status;
+	
+	function checkOnline(){
+		if(navigator.onLine == false) {
+			clearInterval(status);
+			$('.content').avgrund({
+				height: 200,
+				holderClass: 'custom',
+				showClose: true,
+				showCloseText: 'close',
+				onBlurContainer: '.container',
+				openOnEvent: false,
+				template: '<p>Whoops! it looks like you can\'t conect to the internet right now. Please check your connection settings to continue using Screen&sup2</p>',
+				onUnload: function (elem) { 
+					status = setInterval(checkOnline, 1000); 
+				}
+			});
+		}
+	}
+    status = setInterval(checkOnline, 1000);
 	
 	
 	// Initialize the plugin with no custom options
@@ -70,7 +91,7 @@
 						this.count = 0;
 					}
 					
-					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><div class="inner-two"><div class="inner-two" ><div class="inner-three"><p>'+ this.station + '<br> ' + this.hashtag + ': ' + this.count +'<a data-reveal-id="my_modal" data-animation="fade"></a></p></div></div></div></div></div>');
+					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><div class="inner-two"><div class="inner-two" ><div class="inner-three"><div class="count_caption"><p>' + this.count +'<a data-reveal-id="my_modal" data-animation="fade"></a></p></div></div></div></div><div class="station_caption">'+ this.station  + '</div><div class ="connector"><img src="images/connector.png" width="28" height="75"> </div> <div class="caption"> '+ this.hashtag +'</div></div></div>');  
 					
 					// set the scale variable to 
 					var scale = 0.5;
@@ -157,41 +178,104 @@
         <li class="layer" data-depth="0.00"><img class="background-img" src="images/bg5.png" alt="" /></li> 
         <li class="layer" data-depth="0.20"><img class="background-img" src="images/bg2.png" alt="" /></li>
         <li class="layer" data-depth="0.00">
-            <header>
                 <div class="navbar">
-                    <div class="birdicon"><img src="./images/Bird_icon_retina.png" alt=""/></div>
+                    <div class="birdicon">
+                    <a data-reveal-id="info_modal" data-animation="fade"><img src="./images/Bird_icon_retina.png" alt=""/></a>
+                    </div>
                     <div class="white_circle"></div>
                     <div class="title-left"><h1>WHATS ON NOW</h1></div>
                     <div class="white_circle"></div>
-                    <div class="infoicon"> <img src="./images/info_icon_retina.png" alt=""/> </div>
-                    <div class="clear"></div>
+                    <div class="infoicon"><a data-reveal-id="instructions_modal" data-animation="fade"><img src="./images/info_icon_retina.png" alt=""/></a>
+                	</div><!-- END info_icon -->
+                	<div class="clear"></div>
                 </div> <!-- END navbar -->
-            </header><!-- END header -->
-        </li><!-- END li.layer -->
-        
-        <li class="layer" data-depth="0.00">
-            <div id="my_modal" class="reveal-modal">
-                <div id="make_me_scrollable">
-                	<div id="search_results"></div><!-- END search-results -->
-                </div><!-- make_me_scrollable -->
-            	<a class="close-reveal-modal">&#215;</a> 
-            </div><!-- END my_modal -->
-            <div class="content-wrapper">
+            
+                <div id="instructions_modal" class="reveal-modal">
+                	<img src="images/instructions.png" width="549" height="479"  alt=""/> <a class="close-reveal-modal">X</a> 
+                </div><!-- END INSTRUCTIONS_modal -->
+            
+                <div id="my_modal" class="reveal-modal">
+                    <div id="make_me_scrollable">
+                    	<div id="search_results"></div><!-- END search-results -->
+                    </div><!-- make_me_scrollable -->
+                    <a class="close-reveal-modal">X</a> 
+                </div><!-- END my_modal -->
+                
+                <div class="content-wrapper">
                 <div class="tv-shows-container"></div><!-- END tv-shows-container -->
                 <div class="clear"></div>
-       		</div><!-- END content-wrapper -->
-		</li><!-- END li.layer -->
+                
+                </div><!-- END content-wrapper -->
+            
+                <div id="info_modal" class="reveal-modal">
+                    <div class="info_container">
+                        <div class="info_icon"><img src="images/bird_icon_2.png" width="99" height="100"  alt=""/></div><!-- END info_icon -->
+                        <div class="info_text"> THE TEAM</div><!-- END info_text -->
+                        <div class="face">
+                        <img src="./images/dec.png" width="158" height="168"  alt=""/></div><!-- END face -->
+                        <div class="names">Declan Cassells</div><!-- END names -->
+                        <div class="face">
+                        <img src="./images/elena.png" width="158" height="168"  alt=""/></div><!-- END face -->
+                        <div class="names">Elena Rimeikaite</div><!-- END names -->                        <div class="face">
+                        <img src="./images/Siobhan.png" width="158" height="168"  alt=""/></div><!-- END face -->
+                        <div class="names">Siobhán Schnittger</div><!-- END names -->
+                        
+                        <div class="info_text"> SCREEN SPACE</div><!-- END info_text -->
+                        <div class="icons_row">
+                            <div class="icon"><a href="https://digitalincblog.wordpress.com/"><img src="images/wordpress.png" width="49" height="50"  alt=""/></a><a href="https://twitter.com/screenspace13"><img src="images/twitter.png" width="50" height="50"  alt=""/></a><a href="https://www.facebook.com/screen2"><img src="images/facebook.png" width="50" height="50"  alt=""/></a>
+                            </div><!-- END icon -->
+                        </div><!-- END icons_row -->
+                        <a class="close-reveal-modal">X</a>
+                    </div> <!-- END info_container -->
+            	</div><!-- END info_modal -->
+			</li> <!-- END li layer -->
 	</ul><!-- END scene -->
 </div><!-- END container -->
     
-    <script src="./js/parallax.js"></script>
-	<script>
+<script src="./js/parallax.js"></script>
+<script>
 
 	// Pretty simple huh?
 	var scene = document.getElementById('scene');
 	var parallax = new Parallax(scene);
 
-	</script>
+</script>
+
+
+<!--<div class="login-wrapper">
+	<img src="./images/twitter-icon.png" alt="twitter-bird" />
+	<h3>Sign in to your account</h3>
+	<div class="twitter-login">
+		<div class="twitter-login-icon">
+			
+		</div>
+		<form class="twitter-login" action="twitter_login.php" method="get">
+			  <input type="submit" class="twitter-submit" value="Sign In" >
+		</form>
+		<script>
+						
+			$( "form.twitter-login" ).submit(function( event ) {
+				event.preventDefault();
+				
+				var ref = window.open('./php/twitter_login.php', '_blank', 'location=yes');
+				
+				var myCallback = function(event) { 
+					//alert(event.url); 
+					if (event.url.indexOf('146.185.170.24') > 0 && event.url.indexOf('/php/twitter_login.php') < 0) {
+						ref.close();
+					}
+				};
+				ref.addEventListener('loadstart', myCallback);
+				ref.addEventListener('onload', myCallback);
+			
+				return false;
+			});
+		</script>
+	</div>-->
+	<!-- END login-with-twitter --> 
+<!--</div>-->
+<!-- END login-wrapper -->
+
 
 </body>
 </html>
