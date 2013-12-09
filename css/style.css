@@ -688,6 +688,7 @@ a:hover {
 	color: #fff;
 	-webkit-font-smoothing: antialiased;
 	text-align: center;	
+	padding-bottom: 16px;
 }
 
 .info_text {
