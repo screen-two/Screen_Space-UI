@@ -630,7 +630,7 @@ a:hover {
 .reveal-modal {
 	visibility: hidden;
 	top: 100px; 
-	width: 99%;
+	width: 93%;
 	position: absolute;
 	z-index: 101;
 	padding: 30px 40px 34px;
