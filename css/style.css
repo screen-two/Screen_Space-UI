@@ -265,8 +265,12 @@ header {
 	height: 500px;
 	margin: auto;
 	padding-top: 200px;
-	padding-left: 200px;
+	padding-left: 55px;
 	color: #FFF;
+}
+
+.tv-shows-container > div {
+	padding-top: 55px;
 }
 
 .inner-two{
