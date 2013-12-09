@@ -94,7 +94,7 @@
 					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><div class="inner-two"><div class="inner-two" ><div class="inner-three"><div class="count_caption"><p>' + this.count +'<a data-reveal-id="my_modal" data-animation="fade"></a></p></div></div></div></div><div class="station_caption">'+ this.station  + '</div><div class ="connector"><img src="images/connector.png" width="28" height="75"> </div> <div class="caption"> '+ this.hashtag +'</div></div></div>');  
 					
 					// set the scale variable to 
-					var scale = 0.5;
+					var scale = 2;
 					
 					if( scales[this.tv_show_id] === undefined ) {
 						scales[this.tv_show_id] = 0.5;
