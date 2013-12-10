@@ -24,7 +24,6 @@
 <script type="text/javascript">
 
 	//Check to see if there is an internet connection
-		
 	//Solution from http://stackoverflow.com/questions/17377579/how-to-check-internet-connection-in-phonegap-periodically
 	//Alert plugin from http://labs.voronianski.com/jquery.avgrund.js/
 	var status;
@@ -166,8 +165,6 @@
 </head>
 
 <body>
-
-
 <div id="container" class="container">
 
     <ul id="scene" class="scene">
@@ -242,40 +239,42 @@
 </script>
 
 
-<!--<div class="login-wrapper">
-	<img src="./images/twitter-icon.png" alt="twitter-bird" />
-	<h3>Sign in to your account</h3>
+<div class="login-wrapper">
+	<div class="twitter-login-icon"> 
+  		<img src="./images/bird_icon_2.png" alt="twitter-bird" /> 
+	</div><!-- END twitter-login-icon -->
 	<div class="twitter-login">
-		<div class="twitter-login-icon">
-			
-		</div>
+		<h3> Screen Space Would Like To Access Your Twitter Account.</h3>
 		<form class="twitter-login" action="twitter_login.php" method="get">
-			  <input type="submit" class="twitter-submit" value="Sign In" >
+			<input type="submit" class="twitter-submit" value="ALLOW" >
 		</form>
 		<script>
-						
 			$( "form.twitter-login" ).submit(function( event ) {
 				event.preventDefault();
 				
-				var ref = window.open('./php/twitter_login.php', '_blank', 'location=yes');
+				var ref = window.open('http://146.185.170.24/screenspace/php/twitter_login.php', '_blank', 'location=yes');
 				
 				var myCallback = function(event) { 
-					//alert(event.url); 
+					
 					if (event.url.indexOf('146.185.170.24') > 0 && event.url.indexOf('/php/twitter_login.php') < 0) {
+						
 						ref.close();
+	
 					}
+	
 				};
+	
 				ref.addEventListener('loadstart', myCallback);
 				ref.addEventListener('onload', myCallback);
-			
+				
 				return false;
+	
 			});
-		</script>
-	</div>-->
-	<!-- END login-with-twitter --> 
-<!--</div>-->
+	
+		</script> 
+	</div><!-- END twitter-login -->
+</div>
 <!-- END login-wrapper -->
-
 
 </body>
 </html>
