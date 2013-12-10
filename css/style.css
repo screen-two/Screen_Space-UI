@@ -92,9 +92,9 @@ input[type=submit] {
 
 /* //// BEGIN AUTHENTICATION SCREEN STYLES //// */
 
-.tv-shows-container {
+/*.tv-shows-container {
 	display: none;
-}
+}*/
 
 .login-wrapper {
 	width: 900px;
