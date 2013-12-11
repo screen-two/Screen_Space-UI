@@ -2,6 +2,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 body {
+	background: url(../images/BACKGROUND.png);
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	background-size: 100%;
 	background-color: #000;
@@ -97,12 +98,14 @@ input[type=submit] {
 }*/
 
 .login-wrapper {
-	width: 900px;
+	width: 600px;
+	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 	color: #fff;
 	background: rgba(0,0,0,.8);
+	padding: 30px;
 }
 
 .login-wrapper h3 {
