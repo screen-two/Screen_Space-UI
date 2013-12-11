@@ -239,42 +239,7 @@
 </script>
 
 
-<div class="login-wrapper">
-	<div class="twitter-login-icon"> 
-  		<img src="./images/bird_icon_2.png" alt="twitter-bird" /> 
-	</div><!-- END twitter-login-icon -->
-	<div class="twitter-login">
-		<h3> Screen Space Would Like To Access Your Twitter Account.</h3>
-		<form class="twitter-login" action="twitter_login.php" method="get">
-			<input type="submit" class="twitter-submit" value="ALLOW" >
-		</form>
-		<script>
-			$( "form.twitter-login" ).submit(function( event ) {
-				event.preventDefault();
-				
-				var ref = window.open('http://146.185.170.24/screenspace/php/twitter_login.php', '_blank', 'location=yes');
-				
-				var myCallback = function(event) { 
-					
-					if (event.url.indexOf('146.185.170.24') > 0 && event.url.indexOf('/php/twitter_login.php') < 0) {
-						
-						ref.close();
-	
-					}
-	
-				};
-	
-				ref.addEventListener('loadstart', myCallback);
-				ref.addEventListener('onload', myCallback);
-				
-				return false;
-	
-			});
-	
-		</script> 
-	</div><!-- END twitter-login -->
-</div>
-<!-- END login-wrapper -->
+
 
 </body>
 </html>
