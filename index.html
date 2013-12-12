@@ -265,11 +265,13 @@
 				OAuth.popup('twitter', function(error, success){
 				  // See the result below
 				});
-            
-				ref.addEventListener('loadstart', myCallback);
-				ref.addEventListener('onload', myCallback);
-            
-            	return false;
+				
+				if(success == true) { 
+				
+					$(".login-wrapper").hide();
+					$('#container').show();
+				
+				}
 			});
         </script>
 	</div><!-- END twitter-login -->
