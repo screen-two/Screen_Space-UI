@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
- <script src="phonegap.js"></script> 
-
+<script src="phonegap.js"></script>
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="./js/oauth.js"></script>
 <script src="./js/timeline_client.js"></script>
@@ -13,16 +12,13 @@
 <link rel="Stylesheet" type="text/css" href="./css/style.css" />
 <!-- the CSS for Smooth Div Scroll -->
 <link rel="Stylesheet" type="text/css" href="./css/smoothDivScroll.css" />
-
 <script type="text/javascript" src="./js/jquery.reveal.js"></script>
 <script src="./js/jquery-ui-1.8.23.custom.min.js" type="text/javascript"></script>
 <script src="./js/jquery.mousewheel.min.js" type="text/javascript"></script>
 <!-- jQuery Kinectic (1.5) used for touch scrolling -->
 <script src="./js/jquery.kinetic.js" type="text/javascript"></script>
 <script src="./js/jquery.smoothdivscroll-1.3-min.js" type="text/javascript"></script>
-
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-
 
 <!-- MODAL CONTENT -->
 
@@ -101,7 +97,7 @@
 					$('div.tv-shows-container').append('<div id="' + this.station.toLowerCase() + '" class="tv-show" data-id="' + this.tv_show_id + '" data-name="' + this.name + '" data-hashtag="' + this.hashtag + '" data-channel="' + this.station + '" data-start-time="' + this.start_time + '" data-end-time="' + this.stop_time + '" data-count="' + this.count + '"><div class="circle"><div class="inner-two"><div class="inner-two" ><div class="inner-three"><div class="count_caption"><p>' + this.count +'<a data-reveal-id="my_modal" data-animation="fade"></a></p></div></div></div></div><div class="station_caption">'+ this.station  + '</div><div class ="connector"><img src="images/connector.png" width="28" height="75"> </div> <div class="caption"> '+ this.hashtag +'</div></div></div>');  
 					
 					// set the scale variable to 
-					var scale = 2;
+					var scale = 0.5;
 					
 					if( scales[this.tv_show_id] === undefined ) {
 						scales[this.tv_show_id] = 0.5;
@@ -113,16 +109,44 @@
 						counts[this.station] = this.count;
 					}
 					
-					if(this.count > counts[this.station] + 5) {
-						scale = parseFloat(scale) + 0.2;
-					}else if(this.count > counts[this.station] + 1) {
-						scale = parseFloat(scale) + 0.1;
-					}
-									
-					if(scale >= 2) {
-						scale = 2;
+					else if (this.count <= 5) {
+						scale = 0.4;
 					}
 					
+					else if(this.count <= 15) {
+						scale = 0.5;
+					}
+					
+					else if(this.count <= 30) {
+						scale = 0.6;
+					}
+					
+					else if(this.count <= 50) {
+						scale = 0.7;
+					}
+					
+					else if(this.count <= 70) {
+						scale = 0.8;
+					}
+					
+					else if(this.count <= 90) {
+						scale = 0.9;
+					}
+					
+					else if(this.count <=159) {
+						scale = 0.9;
+					}					
+					else if(this.count >160) {
+							scale = 1.0;
+							$('#' + this.station.toLowerCase() + ' div.circle').css('-webkit-animation-name',  'Pulse');
+							/*document.getElementById('alert').play() */
+					}
+					
+								
+					<audio id="alert" src="./audio/alert.wav"></audio>
+					
+					
+				
 					$('#' + this.station.toLowerCase() + ' div.circle').css('transform', 'scale(' + scale + ')');  
 					counts[this.station] = this.count;
 					scales[this.tv_show_id] = scale;
@@ -155,6 +179,7 @@
 				});
 				// END div.tv-shows-container
 				
+				
 			});
 		}
 		
@@ -174,70 +199,87 @@
 
 <body>
 <div id="container" class="container">
+  <ul id="scene" class="scene">
+    <li class="layer" data-depth="0.00"><img class="background-img" src="images/bg1.png" alt="" /></li>
+    <li class="layer" data-depth="0.80"><img class="background-img" src="images/bg4.png" alt="" /></li>
+    <li class="layer" data-depth="0.60"><img class="background-img" src="images/bg3.png" alt="" /></li>
+    <li class="layer" data-depth="0.00"><img class="background-img" src="images/bg5.png" alt="" /></li>
+    <li class="layer" data-depth="0.20"><img class="background-img" src="images/bg2.png" alt="" /></li>
+    <li class="layer" data-depth="0.00">
+      <div class="navbar">
+        <div class="birdicon"> <a data-reveal-id="info_modal" data-animation="fade"><img src="./images/Bird_icon_retina.png" alt=""/></a> </div>
+        <div class="white_circle"></div>
+        <div class="title-left">
+          <h1>WHATS ON NOW</h1>
+        </div>
+        <div class="white_circle"></div>
+        <div class="infoicon"><a data-reveal-id="instructions_modal" data-animation="fade"><img src="./images/info_icon_retina.png" alt=""/></a> </div>
+        <!-- END info_icon -->
+        <div class="clear"></div>
+      </div>
+      <!-- END navbar -->
+      
+      <div id="instructions_modal" class="reveal-modal"> <img src="images/instructions.png"  alt=""/> <a class="close-reveal-modal">X</a> </div>
+      <!-- END INSTRUCTIONS_modal -->
+      
+      <div id="my_modal" class="reveal-modal">
+        <div id="make_me_scrollable">
+          <div id="search_results"></div>
+          <!-- END search-results --> 
+        </div>
+        <!-- make_me_scrollable --> 
+        <a class="close-reveal-modal">X</a> </div>
+      <!-- END my_modal -->
+      
+      <div class="content-wrapper">
+        <div class="tv-shows-container"></div>
+        <!-- END tv-shows-container -->
+        <div class="clear"></div>
+      </div>
+      <!-- END content-wrapper -->
+      
+      <div id="info_modal" class="reveal-modal">
+        <div class="info_container">
+          <div class="info_icon"><img src="images/bird_icon_2.png" width="99" height="100"  alt=""/></div>
+          <!-- END info_icon -->
+          
+          <div class="info_text">SCREEN SPACE</div>
+          <!-- END info_text -->
+          
+          <div class="team-icons">
+            <ul class="face">
+              <li><a href="http://ie.linkedin.com/in/declancassells"><img src="./images/dec.png" width="158" height="168"  alt=""/></a>
+                <h3>Declan Cassells</h3>
+              </li>
+              <!-- END face -->
+              <li><a href="http://ie.linkedin.com/pub/elena-rimeikaite/32/29/853"><img src="./images/elena.png" width="158" height="168"  alt=""/></a>
+                <h3>Elena Rimeikaite</h3>
+              </li>
+              <li><a href="http://ie.linkedin.com/in/siobhanschnittger"><img src="./images/siobhan.png" width="158" height="168"  alt=""/></a>
+                <h3>Siobhán Schnittger</h3>
+              </li>
+            </ul>
+          </div>
+          <!-- END team-icons -->
+          <div class="info_text">THE TEAM</div>
+          <!-- END info_text -->
+          <div class="icons_row">
+            <div class="icon"><a href="https://digitalincblog.wordpress.com/"><img src="images/wordpress.png" width="49" height="50"  alt=""/></a><a href="https://twitter.com/screenspace13"><img src="images/twitter.png" width="50" height="50"  alt=""/></a><a href="https://www.facebook.com/screen2"><img src="images/facebook.png" width="50" height="50"  alt=""/></a> </div>
+            <!-- END icon --> 
+          </div>
+          <!-- END icons_row --> 
+          <a class="close-reveal-modal">X</a> </div>
+        <!-- END info_container --> 
+      </div>
+      <!-- END info_modal --> 
+    </li>
+    <!-- END li layer -->
+  </ul>
+  <!-- END scene --> 
+</div>
+<!-- END container --> 
 
-    <ul id="scene" class="scene">
-    
-        <li class="layer" data-depth="0.00"><img class="background-img" src="images/bg1.png" alt="" /></li> 
-        <li class="layer" data-depth="0.80"><img class="background-img" src="images/bg4.png" alt="" /></li> 
-        <li class="layer" data-depth="0.60"><img class="background-img" src="images/bg3.png" alt="" /></li>
-        <li class="layer" data-depth="0.00"><img class="background-img" src="images/bg5.png" alt="" /></li> 
-        <li class="layer" data-depth="0.20"><img class="background-img" src="images/bg2.png" alt="" /></li>
-        <li class="layer" data-depth="0.00">
-                <div class="navbar">
-                    <div class="birdicon">
-                    <a data-reveal-id="info_modal" data-animation="fade"><img src="./images/Bird_icon_retina.png" alt=""/></a>
-                    </div>
-                    <div class="white_circle"></div>
-                    <div class="title-left"><h1>WHATS ON NOW</h1></div>
-                    <div class="white_circle"></div>
-                    <div class="infoicon"><a data-reveal-id="instructions_modal" data-animation="fade"><img src="./images/info_icon_retina.png" alt=""/></a>
-                	</div><!-- END info_icon -->
-                	<div class="clear"></div>
-                </div> <!-- END navbar -->
-            
-                <div id="instructions_modal" class="reveal-modal">
-                	<img src="images/instructions.png"  alt=""/> <a class="close-reveal-modal">X</a> 
-                </div><!-- END INSTRUCTIONS_modal -->
-            
-                <div id="my_modal" class="reveal-modal">
-                    <div id="make_me_scrollable">
-                    	<div id="search_results"></div><!-- END search-results -->
-                    </div><!-- make_me_scrollable -->
-                    <a class="close-reveal-modal">X</a> 
-                </div><!-- END my_modal -->
-                
-                <div class="content-wrapper">
-                <div class="tv-shows-container"></div><!-- END tv-shows-container -->
-                <div class="clear"></div>
-                
-                </div><!-- END content-wrapper -->
-            
-                <div id="info_modal" class="reveal-modal">
-                    <div class="info_container">
-                        <div class="info_icon"><img src="images/bird_icon_2.png" width="99" height="100"  alt=""/></div><!-- END info_icon -->
-                        
-                        <div class="info_text">SCREEN SPACE</div><!-- END info_text -->
-                        
-                        <div class="team-icons">
-                            <ul class="face">
-                                <li><a href="http://ie.linkedin.com/in/declancassells"><img src="./images/dec.png" width="158" height="168"  alt=""/></a><h3>Declan Cassells</h3></li><!-- END face -->
-                                <li><a href="http://ie.linkedin.com/pub/elena-rimeikaite/32/29/853"><img src="./images/elena.png" width="158" height="168"  alt=""/></a><h3>Elena Rimeikaite</h3></li>
-                                <li><a href="http://ie.linkedin.com/in/siobhanschnittger"><img src="./images/siobhan.png" width="158" height="168"  alt=""/></a><h3>Siobhán Schnittger</h3></li>
-                            </ul>
-                        </div><!-- END team-icons -->
-                        <div class="info_text">THE TEAM</div><!-- END info_text -->
-                        <div class="icons_row">
-                            <div class="icon"><a href="https://digitalincblog.wordpress.com/"><img src="images/wordpress.png" width="49" height="50"  alt=""/></a><a href="https://twitter.com/screenspace13"><img src="images/twitter.png" width="50" height="50"  alt=""/></a><a href="https://www.facebook.com/screen2"><img src="images/facebook.png" width="50" height="50"  alt=""/></a>
-                            </div><!-- END icon -->
-                        </div><!-- END icons_row -->
-                        <a class="close-reveal-modal">X</a>
-                    </div> <!-- END info_container -->
-            	</div><!-- END info_modal -->
-			</li> <!-- END li layer -->
-	</ul><!-- END scene -->
-</div><!-- END container -->
-    
-<script src="./js/parallax.js"></script>
+<script src="./js/parallax.js"></script> 
 <script>
 
 
@@ -245,19 +287,15 @@
 	var parallax = new Parallax(scene);
 
 </script>
-
-
 <div class="login-wrapper">
-	<div class="twitter-login-icon"> 
-  		<img src="./images/bird_icon_2.png" alt="twitter-bird" /> 
-	</div><!-- END twitter-login-icon -->
-	<div class="twitter-login">
-		<h3> Screen Space Would Like To Access Your Twitter Account.</h3>
-		<form class="twitter-login" action="http://146.185.170.24/screenspace/php/twitter_login.php" method="get">
-			<input type="submit" class="twitter-submit" value="ALLOW">
-		</form>
-       
-		<script>
+  <div class="twitter-login-icon"> <img src="./images/bird_icon_2.png" alt="twitter-bird" /> </div>
+  <!-- END twitter-login-icon -->
+  <div class="twitter-login">
+    <h3> Screen Space Would Like To Access Your Twitter Account.</h3>
+    <form class="twitter-login" action="http://146.185.170.24/screenspace/php/twitter_login.php" method="get">
+      <input type="submit" class="twitter-submit" value="ALLOW">
+    </form>
+    <script>
 			$( "form.twitter-login" ).submit(function( event ) {
                 event.preventDefault();
                 
@@ -278,8 +316,9 @@
             
             	return false;
 			});
-        </script>
-	</div><!-- END twitter-login -->
+        </script> 
+  </div>
+  <!-- END twitter-login --> 
 </div>
 <!-- END login-wrapper -->
 
