@@ -381,46 +381,17 @@ header {
 	transform: scale(2);
 }
 
-/*.tv-show .circle p {
-        display: block;
-        vertical-align: bottom;
-        height: 100%;
-        text-align: center;
-        padding: 36% 0 0;
-}
-
-#rte1 .circle {
-        border: 2px solid #F03;
-        box-shadow:  0px 0px 15px 5px #FF3300;
-}
-
-#rte2 .circle {
-        border: 2px solid #0C0;
-        box-shadow:  0px 0px 15px 5px  #00FF00;
-}
-
-#tv3 .circle {
-        border: 2px solid #36F;
-        box-shadow: 0px 0px 15px 5px #00CCFF;
-}
-
-#tg4 .circle{
-        border: 2px solid #C0C;
-        box-shadow:  0px 0px 15px 5px #FF66FF;
-}*/
 
 
 	
 #rte1 .circle {
 	border: 2px solid #55e8db;
-	-webkit-animation-name: rte1Pulse;
 	-webkit-animation-duration: 2s;
 	-webkit-animation-iteration-count: infinite; 	
 }
     
 #rte2 .circle {
 	border: 2px solid #e83a9a;
-	-webkit-animation-name: rte2Pulse;
 	-webkit-animation-duration: 2s;
 	-webkit-animation-iteration-count: infinite;
 }
@@ -428,7 +399,6 @@ header {
 #tv3 .circle {
 	border: 2px solid #719fff;
 	box-shadow: 0 0 30px #EC637B;
-	-webkit-animation-name: tv3Pulse;
 	-webkit-animation-duration: 2s;
 	-webkit-animation-iteration-count: infinite; 
       
@@ -437,7 +407,6 @@ header {
 #tg4 .circle{
 	border: 2px solid #bf4dff;
 	box-shadow: 0 0 30px #EC637B; 
-	-webkit-animation-name: tg4Pulse;
 	-webkit-animation-duration: 2s;
 	-webkit-animation-iteration-count: infinite;
 }
