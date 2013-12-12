@@ -867,7 +867,7 @@ a:hover {
   border-left-color: #fff;
   border-radius: 10px;
   -webkit-animation: pace-spinner 400ms linear infinite;
-
+}
 
 @-webkit-keyframes pace-spinner {
   0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
