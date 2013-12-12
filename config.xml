@@ -58,6 +58,7 @@
 	
 	<plugin name="InAppBrowser" value="CDVInAppBrowser" />
 	<plugin name="Notification" value="CDVNotification" />
+	<gap:plugin name="com.auth0.sdk" />
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
 
