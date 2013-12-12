@@ -58,7 +58,6 @@
 	
 	<plugin name="InAppBrowser" value="CDVInAppBrowser" />
 	<plugin name="Notification" value="CDVNotification" />
-	<gap:plugin name="com.phonegap.plugins.childbrowser" version="4.2.1" />
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
 
