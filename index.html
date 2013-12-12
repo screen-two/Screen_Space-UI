@@ -71,7 +71,7 @@
 
 
 			// GLOBAL VARS
-	var oauth; // It Holds the oAuth data request
+	/*var oauth; // It Holds the oAuth data request
 	var requestParams; // Specific param related to request
 	var options = {
 		consumerKey: 'orPxnRuTilC0W9e8NPt4AA', // YOUR Twitter CONSUMER_KEY
@@ -114,7 +114,7 @@
 				}
 				);
 			}
-			},
+			},*/
 				/*
 				 When InAppBrowser's URL changes we will track it here.
 				 We will also be acknowledged was the request is a successful or unsuccessful
@@ -126,7 +126,7 @@
 					/*
 					 Here Plugin will check whether the callback Url matches with the given Url
 					 */
-					if (loc.indexOf("http://146.185.170.24/screenspace/php/twitter_oauth.php?") >= 0) {
+					/*if (loc.indexOf("http://146.185.170.24/screenspace/php/twitter_oauth.php?") >= 0) {
 						 
 						// Parse the returned URL
 						var index, verifier = '';
@@ -138,7 +138,7 @@
 							if(y[0] === 'oauth_verifier') {
 								verifier = y[1];
 							}
-						}
+						}*/
 						 
 						// Here we are going to change token for request with token for access
 						 
@@ -146,7 +146,7 @@
 						 Once user has authorised us then we have to change the token for request with token of access
 						here we will give data to localStorage.
 						 */
-						oauth.get('https://api.twitter.com/oauth/access_token?oauth_verifier='+verifier+'&'+requestParams,
+						/*oauth.get('https://api.twitter.com/oauth/access_token?oauth_verifier='+verifier+'&'+requestParams,
 								  function(data) {
 								  var accessParams = {};
 								  var qvars_tmp = data.text.split('&');
@@ -215,11 +215,11 @@
 							  Twitter.post();
 							  }
 							  );
-				},
+				},*/
 				/*
 				 We now have the data to tweet
 				 */
-				post:function(){
+				/*post:function(){
 					var theTweet = $("#tweet").val(); // You can change it with what else you likes.
 					 
 					oauth.post('https://api.twitter.com/1.1/statuses/update.json',
@@ -258,7 +258,7 @@
 				$(".login-wrapper").show();
 				$('#container').hide();
 			  
-			}
+			}*/
 			 
 		</script>
 		<!--Code for Twitter ends here-->
@@ -492,7 +492,6 @@
 		<h3> Screen Space Would Like To Access Your Twitter Account.</h3>
 		<form class="twitter-login" action="http://146.185.170.24/screenspace/php/twitter_login.php" method="get">
 			<input type="submit" class="twitter-submit" value="ALLOW">
-			
 		</form>
        
 		<script>
