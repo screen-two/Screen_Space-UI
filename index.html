@@ -48,15 +48,15 @@
 	}
 	 
 	function onCloseBrowser() {
-		console.log("onCloseBrowser!");
+		alert("onCloseBrowser!");
 	}
 		 
 	function locChanged(loc) {
-		console.log("locChanged!");
+		alert("locChanged!");
 	}
 		 
 	function onOpenExternal() {
-		console.log("onOpenExternal!");
+		alert("onOpenExternal!");
 	}
 		 
 </script>
@@ -88,7 +88,7 @@
 			oauth.get('https://api.twitter.com/1.1/account/verify_credentials.json?skip_status=true',
 			function(data) {
 					var entry = JSON.parse(data.text);
-					console.log("USERNAME: " + entry.screen_name);
+					alert("USERNAME: " + entry.screen_name);
 					}
 				);
 			}
@@ -102,7 +102,7 @@
 					cb.onLocationChange = function(loc){ Twitter.success(loc); }; // Here will will track the change in URL of ChildBrowser
 				},
 				function(data) {
-					console.log("ERROR: "+data);
+					alert("ERROR: "+data);
 				}
 				);
 			}
@@ -158,13 +158,13 @@
 								  accessData.accessTokenSecret = accessParams.oauth_token_secret;
 								   
 								  // Configuring Apps LOCAL_STORAGE
-								  console.log("TWITTER: Storing token key/secret in localStorage");
+								  alert("TWITTER: Storing token key/secret in localStorage");
 								  localStorage.setItem(twitterKey, JSON.stringify(accessData));
 								   
 								  oauth.get('https://api.twitter.com/1.1/account/verify_credentials.json?skip_status=true',
 											function(data) {
 											var entry = JSON.parse(data.text);
-											console.log("TWITTER USER: "+entry.screen_name);
+											alert("TWITTER USER: "+entry.screen_name);
 											$("#welcome").show();
 											document.getElementById("welcome").innerHTML="welcome " + entry.screen_name;
 											successfulLogin();
@@ -172,7 +172,7 @@
 											app.init();
 											},
 											function(data) {
-											console.log("ERROR: " + data);
+											alert("ERROR: " + data);
 											}
 											);
 								   
@@ -181,7 +181,7 @@
 								  window.plugins.childBrowser.close();
 								  },
 								  function(data) {
-								  console.log(data);
+								  alert(data);
 								   
 								   
 								  }
@@ -189,7 +189,7 @@
 					}
 					else {
 						// Just Empty
-						console.log('location changed ' + loc);
+						alert('location changed ' + loc);
 					}
 				},
 				tweet:function(){
@@ -219,13 +219,13 @@
 							   'trim_user' : 'true' },
 							   function(data) {
 							   var entry = JSON.parse(data.text);
-							   console.log(entry);
+							   alert(entry);
 								
 							   // just for eg.
 							   done();
 							   },
 							   function(data) {
-							   console.log(data);
+							   alert(data);
 							   }
 							   );      
 				}
