@@ -490,16 +490,24 @@
 		</form>
        
 		<script>
-		
-			$( "form.twitter-login" ).submit(function( event ) {
-				event.preventDefault();
-				
-				Twitter.init();
-				
-				return false;
-	
-			});
-		</script> 
+            $( "form.twitter-login" ).submit(function( event ) {
+                event.preventDefault();
+                
+                var ref = window.open('http://146.185.170.24/screenspace/php/twitter_login.php', '_blank', 'location=yes');
+                
+                var myCallback = function(event) { 
+                    //alert(event.url); 
+                    if (event.url.indexOf('146.185.170.24') > 0 && event.url.indexOf('/screenspace/php/twitter_login.php') < 0) {
+                    ref.close();
+                }
+            };
+            
+            ref.addEventListener('loadstart', myCallback);
+            ref.addEventListener('onload', myCallback);
+            
+            return false;
+        });
+        </script>
 	</div><!-- END twitter-login -->
 </div>
 <!-- END login-wrapper -->
