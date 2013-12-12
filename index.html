@@ -264,14 +264,16 @@
                 OAuth.initialize('o0vbkg1GV-hBwKL-6-6wYvRTGqE');
 				OAuth.popup('twitter', function(error, success){
 				  // See the result below
-				});
-				
-				if(success == true) { 
+				  
+				  if(success == true) { 
 				
 					$(".login-wrapper").hide();
 					$('#container').show();
 				
 				}
+				});
+				
+				
 			});
         </script>
 	</div><!-- END twitter-login -->
