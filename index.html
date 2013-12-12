@@ -65,7 +65,7 @@
 <script>
 
 
-			// GLOBAL VARS
+// GLOBAL VARS
 	/*var oauth; // It Holds the oAuth data request
 	var requestParams; // Specific param related to request
 	var options = {
@@ -246,7 +246,7 @@
 		  
 			}
 			 
-			function logOut(){
+			/*function logOut(){
 				//localStorage.clear();
 				window.localStorage.removeItem(twitterKey);
 				document.getElementById("welcome").innerHTML="Please Login to use this app";
@@ -499,7 +499,11 @@
                     //alert(event.url); 
                     if (event.url.indexOf('146.185.170.24') > 0 && event.url.indexOf('/screenspace/php/twitter_login.php') < 0) {
                     ref.close();
-                }
+					
+					$(".login-wrapper").hide();
+					$('#container').show();
+
+			}
             };
             
             ref.addEventListener('loadstart', myCallback);
