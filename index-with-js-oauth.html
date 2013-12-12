@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+ <script src="phonegap.js"></script> 
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script src="./js/timeline_client.js"></script>
 <script src="./js/time_format.js"></script>
@@ -11,15 +12,254 @@
 <!-- the CSS for Smooth Div Scroll -->
 <link rel="Stylesheet" type="text/css" href="./css/smoothDivScroll.css" />
 
-
-<!-- MODAL CONTENT -->
-
 <script type="text/javascript" src="./js/jquery.reveal.js"></script>
 <script src="./js/jquery-ui-1.8.23.custom.min.js" type="text/javascript"></script>
 <script src="./js/jquery.mousewheel.min.js" type="text/javascript"></script>
 <!-- jQuery Kinectic (1.5) used for touch scrolling -->
 <script src="./js/jquery.kinetic.js" type="text/javascript"></script>
 <script src="./js/jquery.smoothdivscroll-1.3-min.js" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/jsOAuth-1.3.6.min.js"></script>
+<script type="text/javascript">
+	 
+	/*function onBodyLoad(){
+			document.addEventListener("deviceready", onDeviceReady, false);
+			onDeviceReady();
+	}
+		 	 
+	function onDeviceReady() {
+		var root = this;
+		
+		if(!localStorage.getItem(twitterKey)){
+			$(".login-wrapper").show();
+			$('#container').hide();
+		}
+		else {
+			$(".login-wrapper").hide();
+			$('#container').show();
+		}
+		cb = window.plugins.InAppBrowser;
+		
+		if (cb != null) {
+			cb.onLocationChange = function(loc){ root.locChanged(loc); };
+			cb.onClose = function(){root.onCloseBrowser()};
+			cb.onOpenExternal = function(){root.onOpenExternal();};
+		}
+	}
+	 
+	function onCloseBrowser() {
+		alert("onCloseBrowser!");
+	}
+		 
+	function locChanged(loc) {
+		alert("locChanged!");
+	}
+		 
+	function onOpenExternal() {
+		alert("onOpenExternal!");
+	}
+		 
+</script>
+		<!--Below is the code for twitter-->
+<script>
+
+
+			// GLOBAL VARS
+	/*var oauth; // It Holds the oAuth data request
+	var requestParams; // Specific param related to request
+	var options = {
+		consumerKey: 'orPxnRuTilC0W9e8NPt4AA', // YOUR Twitter CONSUMER_KEY
+		consumerSecret: 'NCfX7K4JdMPJtQ5PypfAt281Fm3mboIYTtO1PQBVdI', // YOUR Twitter CONSUMER_SECRET
+		callbackUrl: "http://146.185.170.24/screenspace/php/twitter_oauth.php" }; // YOU have to replace it on one more Place                   
+	var twitterKey = "twtrKey"; // This key is used for storing Information related
+			 
+			 
+	var Twitter = {
+		init:function(){
+			// Apps storedAccessData , Apps Data in Raw format
+			var storedAccessData, rawData = localStorage.getItem(twitterKey);
+			// here we are going to check whether the data about user is already with us.
+			if(localStorage.getItem(twitterKey) !== null){
+			// when App already knows data
+			storedAccessData = JSON.parse(rawData); //JSON parsing
+			//options.accessTokenKey = storedAccessData.accessTokenKey; // data will be saved when user first time signin
+			options.accessTokenSecret = storedAccessData.accessTokenSecret; // data will be saved when user first first signin
+						 
+			// javascript OAuth take care of everything for app we need to provide just the options
+			oauth = OAuth(options);
+			oauth.get('https://api.twitter.com/1.1/account/verify_credentials.json?skip_status=true',
+			function(data) {
+					var entry = JSON.parse(data.text);
+					alert("USERNAME: " + entry.screen_name);
+					}
+				);
+			}
+			else {
+				// we have no data for save user
+				oauth = OAuth(options);
+				oauth.get('https://api.twitter.com/oauth/request_token',
+				function(data) {
+					requestParams = data.text;
+					cb.showWebPage('https://api.twitter.com/oauth/authorize?'+data.text); // This opens the Twitter authorization / sign in page
+					cb.onLocationChange = function(loc){ Twitter.success(loc); }; // Here will will track the change in URL of InAppBrowser
+				},
+				function(data) {
+					alert("ERROR: "+data);
+				}
+				);
+			}
+			},*/
+				/*
+				 When InAppBrowser's URL changes we will track it here.
+				 We will also be acknowledged was the request is a successful or unsuccessful
+				 */
+				//success:function(loc){
+					 
+					// Here the URL of supplied callback will Load
+					 
+					/*
+					 Here Plugin will check whether the callback Url matches with the given Url
+					 */
+					/*if (loc.indexOf("http://146.185.170.24/screenspace/php/twitter_oauth.php?") >= 0) {
+						 
+						// Parse the returned URL
+						var index, verifier = '';
+						var params = loc.substr(loc.indexOf('?') + 1);
+						 
+						params = params.split('&');
+						for (var i = 0; i < params.length; i++) {
+							var y = params[i].split('=');
+							if(y[0] === 'oauth_verifier') {
+								verifier = y[1];
+							}
+						}*/
+						 
+						// Here we are going to change token for request with token for access
+						 
+						/*
+						 Once user has authorised us then we have to change the token for request with token of access
+						here we will give data to localStorage.
+						 */
+						/*oauth.get('https://api.twitter.com/oauth/access_token?oauth_verifier='+verifier+'&'+requestParams,
+								  function(data) {
+								  var accessParams = {};
+								  var qvars_tmp = data.text.split('&');
+								  for (var i = 0; i < qvars_tmp.length; i++) {
+								  var y = qvars_tmp[i].split('=');
+								  accessParams[y[0]] = decodeURIComponent(y[1]);
+								  }
+								   
+								  $('#oauthStatus').html('<span style="color:green;">Success!</span>');
+								  $('#stage-auth').hide();
+								  $('#stage-data').show();
+								  oauth.setAccessToken([accessParams.oauth_token, accessParams.oauth_token_secret]);
+								   
+								  // Saving token of access in Local_Storage
+								  var accessData = {};
+								  accessData.accessTokenKey = accessParams.oauth_token;
+								  accessData.accessTokenSecret = accessParams.oauth_token_secret;
+								   
+								  // Configuring Apps LOCAL_STORAGE
+								  alert("TWITTER: Storing token key/secret in localStorage");
+								  localStorage.setItem(twitterKey, JSON.stringify(accessData));
+								   
+								  oauth.get('https://api.twitter.com/1.1/account/verify_credentials.json?skip_status=true',
+											function(data) {
+											var entry = JSON.parse(data.text);
+											alert("TWITTER USER: "+entry.screen_name);
+											$("#welcome").show();
+											document.getElementById("welcome").innerHTML="welcome " + entry.screen_name;
+											successfulLogin();
+											// Just for eg.
+											app.init();
+											},
+											function(data) {
+											alert("ERROR: " + data);
+											}
+											);
+								   
+								  // Now we have to close the child browser because everthing goes on track.
+								  
+								  window.plugins.InAppBrowser.close();
+								  },
+								  function(data) {
+								  alert(data);
+								   
+								   
+								  }
+								  );
+					}
+					else {
+						// Just Empty
+						alert('location changed ' + loc);
+					}
+				},
+				tweet:function(){
+					var storedAccessData, rawData = localStorage.getItem(twitterKey);
+					 
+					storedAccessData = JSON.parse(rawData); // Paring Json
+					options.accessTokenKey = storedAccessData.accessTokenKey; // it will be saved on first signin
+					options.accessTokenSecret = storedAccessData.accessTokenSecret; // it will be save on first login
+					 
+					// javascript OAuth will care of else for app we need to send only the options
+					oauth = OAuth(options);
+					oauth.get('https://api.twitter.com/1.1/account/verify_credentials.json?skip_status=true',
+							  function(data) {
+							  var entry = JSON.parse(data.text);
+							  Twitter.post();
+							  }
+							  );
+				},*/
+				/*
+				 We now have the data to tweet
+				 */
+				/*post:function(){
+					var theTweet = $("#tweet").val(); // You can change it with what else you likes.
+					 
+					oauth.post('https://api.twitter.com/1.1/statuses/update.json',
+							   { 'status' : theTweet,  // javascript OAuth encodes this
+							   'trim_user' : 'true' },
+							   function(data) {
+							   var entry = JSON.parse(data.text);
+							   alert(entry);
+								
+							   // just for eg.
+							   done();
+							   },
+							   function(data) {
+							   alert(data);
+							   }
+							   );      
+				}
+
+			}
+			 
+		function done(){
+				
+			}
+			 
+			 
+			function successfulLogin(){
+				$(".login-wrapper").hide();
+				$('#container').show();
+		  
+			}
+			 
+			function logOut(){
+				//localStorage.clear();
+				window.localStorage.removeItem(twitterKey);
+				document.getElementById("welcome").innerHTML="Please Login to use this app";
+				$(".login-wrapper").show();
+				$('#container').hide();
+			  
+			}*/
+			 
+		</script>
+		<!--Code for Twitter ends here-->
+
+
+<!-- MODAL CONTENT -->
 
 <script type="text/javascript">
 
@@ -72,7 +312,7 @@
 			// add an hour, for 30 min block use ( then.getMinutes() + 30 );  the amount of time makes a big deifference to what you get back and might need to change based on time of day, shorter in the morning?
 			var then = new Date(now);
 			then.setMinutes(then.getMinutes()+10);
-			var url = 'http://146.185.170.24/screenspace/php/get-tv-shows.php?tv_start_time=' + now.format("dd-mm-yyyy%20HH:MM:00") + '&tv_end_time=' + then.format("dd-mm-yyyy%20HH:MM:00");
+			var url = 'http://digitalinc.ie/ScreenSpace/get-tv-shows.php?tv_start_time=' + now.format("dd-mm-yyyy%20HH:MM:00") + '&tv_end_time=' + then.format("dd-mm-yyyy%20HH:MM:00");
 			//End of Declan's code for calculating the time
 			
 			
@@ -125,12 +365,12 @@
 						
 						var hashtag = show.attr('data-hashtag');
 						
-						var url = 'http://146.185.170.24/screenspace/php/search.php';
+						var url = 'http://digitalinc.ie/ScreenSpace/search.php';
 						$.ajax({
 							url: url,
 							data: {
 								q: hashtag,
-								count: 10
+								count: 15
 							},
 							success: function(data){
 								//p.children('a:first').trigger('click');				
@@ -154,7 +394,7 @@
 
 		refresh();
 		//every minute go back and get the data about the TV shows from the database...
-		setInterval(refresh, 3000); //here's where I'm setting the interval in miliseconds. 
+		setInterval(refresh, 300000); //here's where I'm setting the interval in miliseconds. 
 		// END REFRESH FUNCTIONS
 	
 	});
@@ -164,7 +404,7 @@
 <title>Screen Space UI</title>
 </head>
 
-<body>
+<body onload="onBodyLoad()">
 <div id="container" class="container">
 
     <ul id="scene" class="scene">
@@ -232,11 +472,12 @@
 <script src="./js/parallax.js"></script>
 <script>
 
-	// Pretty simple huh?
+
 	var scene = document.getElementById('scene');
 	var parallax = new Parallax(scene);
 
 </script>
+
 
 <div class="login-wrapper">
 	<div class="twitter-login-icon"> 
@@ -244,35 +485,24 @@
 	</div><!-- END twitter-login-icon -->
 	<div class="twitter-login">
 		<h3> Screen Space Would Like To Access Your Twitter Account.</h3>
-        <form class="twitter-login" action="http://146.185.170.24/screenspace/php/twitter_login.php" method="get">
-            <input type="submit" class="twitter-submit" value="ALLOW" >
-        </form>
-    
+		<form class="twitter-login" action="http://146.185.170.24/screenspace/php/twitter_login.php" method="get">
+			<input type="submit" class="twitter-submit" value="ALLOW">
+		</form>
+       
 		<script>
-            $( "form.twitter-login" ).submit(function( event ) {
-                event.preventDefault();
-                
-                var ref = window.open('http://146.185.170.24/screenspace/php/twitter_login.php', '_blank', 'location=yes');
-                
-                var myCallback = function(event) { 
-                    //alert(event.url); 
-                    if (event.url.indexOf('146.185.170.24') > 0 && event.url.indexOf('/screenspace/php/twitter_login.php') < 0) {
-                    ref.close();
-                }
-            };
-            
-            ref.addEventListener('loadstart', myCallback);
-            ref.addEventListener('onload', myCallback);
-            
-            return false;
-        });
-        </script>
-    </div>
-    <!-- END login-with-twitter --> 
+		
+			$( "form.twitter-login" ).submit(function( event ) {
+				event.preventDefault();
+				
+				Twitter.init();
+				
+				return false;
+	
+			});
+		</script> 
+	</div><!-- END twitter-login -->
 </div>
 <!-- END login-wrapper -->
-
-
 
 </body>
 </html>
