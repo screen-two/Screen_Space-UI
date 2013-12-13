@@ -17,7 +17,7 @@
  Listener for data-reveal-id attributes
 ----------------------------*/
 
-	$('a[data-reveal-id]').on('click', function(e) {
+	$('a[data-reveal-id]').live('click', function(e) {
 		e.preventDefault();
 		var modalLocation = $(this).attr('data-reveal-id');
 		$('#'+modalLocation).reveal($(this).data());
@@ -32,9 +32,9 @@
         
         var defaults = {  
 	    	animation: 'fadeAndPop', //fade, fadeAndPop, none
-		    animationspeed: 300, //how fast animtions are
+		    animationspeed: 200, //how fast animtions are
 		    closeonbackgroundclick: true, //if you click background will modal close?
-		    dismissmodalclass: 'close-reveal-modal' //the class of a button or element that will close an open modal
+		    dismissmodalclass: 'close_reveal_modal' //the class of a button or element that will close an open modal
     	}; 
     	
         //Extend dem' options
@@ -49,13 +49,13 @@
         		topMeasure  = parseInt(modal.css('top')),
 				topOffset = modal.height() + topMeasure,
           		locked = false,
-				modalBG = $('.reveal-modal-bg');
+				modalBG = $('.reveal_modal_bg');
 
 /*---------------------------
  Create Modal BG
 ----------------------------*/
 			if(modalBG.length == 0) {
-				modalBG = $('<div class="reveal-modal-bg" />').insertAfter(modal);
+				modalBG = $('<div class="reveal_modal_bg" />').insertAfter(modal);
 			}		    
      
 /*---------------------------
