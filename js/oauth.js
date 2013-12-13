@@ -162,6 +162,8 @@ module.exports = {
 	}
 };
 
+var OAuth = module.exports;
+
 function create_hash() {
 	var hash = b64_sha1((new Date()).getTime() + ':' + Math.floor(Math.random()*9999999));
 	return hash.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
