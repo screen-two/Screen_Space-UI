@@ -10,6 +10,9 @@ function replaceParam(param, rep) {
 	});
 }
 
+var module = function() {
+};
+
 function sendCallback(opts) {
 	var data;
 	var err;
